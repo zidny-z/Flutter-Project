@@ -1,7 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.coba_flutter_app">
-   <application
-        android:label="coba_flutter_app"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:label="antriajaa"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
