@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:antriajaa/pages/homePage.dart';
+// import 'package:antriajaa/pages/homePage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:antriajaa/pages/registerPage.dart';
 // import 'theme.dart';
 
 void main() {
@@ -13,9 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+      home: RegisterPage(),
       theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(),
+        textTheme: GoogleFonts.interTextTheme(),
       ),
     );
   }

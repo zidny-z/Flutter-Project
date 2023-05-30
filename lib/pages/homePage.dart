@@ -17,9 +17,7 @@ class HomePage extends StatelessWidget {
             Text(
               'Akun Anda',
               style: TextStyle(
-                  color: primaryColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600),
+                  color: greenColor, fontSize: 20, fontWeight: FontWeight.w600),
             ),
             SizedBox(
               height: 40,
@@ -115,10 +113,9 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 16),
                 ),
                 style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStatePropertyAll<Color>(orangeColor),
+                    backgroundColor: MaterialStatePropertyAll<Color>(redColor),
                     foregroundColor:
-                        MaterialStatePropertyAll<Color>(primaryColor)),
+                        MaterialStatePropertyAll<Color>(greenColor)),
               ),
             )
           ],
