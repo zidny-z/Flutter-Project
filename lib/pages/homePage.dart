@@ -1,3 +1,5 @@
+import 'package:antriajaa/models/acaraM.dart';
+import 'package:antriajaa/widgets/acaraCard.dart';
 import 'package:antriajaa/widgets/beritaCard.dart';
 import 'package:antriajaa/models/beritaM.dart';
 import 'package:antriajaa/theme.dart';
@@ -160,7 +162,7 @@ class HomePage extends StatelessWidget {
                     Berita(
                       id: 1,
                       image: 'assets/images/images1.png',
-                      tanggal: '27 maret 2023',
+                      tanggal: '27 Maret 2023',
                       judul: 'Kewajiban Vaksin Untuk Mudik ',
                     ),
                   ),
@@ -192,6 +194,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+
             //awal fitur acara
             SizedBox(
               height: 25,
@@ -205,49 +208,56 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            // SizedBox(
-            //   height: 11,
-            // ),
-            // Padding(
-            //   padding: EdgeInsets.only(left: 20),
-            //   child: Column(
-            //     children: [
-            //       acaracards(
-            //         Acara(
-            //           id: 1,
-            //           image: 'assets/images/acara1.png',
-            //           Judul: 'Vaksin Booster Massal',
-            //           rumahsakit: 'Mitra Sehat',
-            //         ),
-            //       ),
-            //       SizedBox(
-            //         height: 15,
-            //       ),
-            //       acaracards(
-            //         Acara(
-            //           id: 2,
-            //           image: 'assets/images/acara2.png',
-            //           Judul: 'ayo vaksin',
-            //           rumahsakit: 'pondok indah',
-            //         ),
-            //       ),
-            //       SizedBox(
-            //         height: 15,
-            //       ),
-            //       acaracards(
-            //         Acara(
-            //             id: 1,
-            //             image: 'assets/images/acara1.png',
-            //             Judul: 'Vaksin booster massal',
-            //             rumahsakit: 'Jember Medika'),
-            //       ),
-            //       SizedBox(
-            //         height: 15,
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
+            SizedBox(
+              height: 11,
+            ),
+            Container(
+              height: 135,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  SizedBox(
+                    width: 12,
+                  ),
+                  AcaraCard(
+                    Acara(
+                      id: 1,
+                      image: 'assets/images/acara1.png',
+                      tanggal: '27 Maret 2023',
+                      judul: 'Vaksinasi Booster Gratis',
+                      rumahsakit: "RS Medika Sukamoto",
+                    ),
+                  ),
+                  SizedBox(
+                    width: 14,
+                  ),
+                  AcaraCard(
+                    Acara(
+                      id: 2,
+                      image: 'assets/images/acara2.png',
+                      tanggal: '27 maret 2023',
+                      judul: 'Swabtest Sebelum Mudik',
+                      rumahsakit: "RS Medika Mekdi",
+                    ),
+                  ),
+                  SizedBox(
+                    width: 14,
+                  ),
+                  AcaraCard(
+                    Acara(
+                      id: 3,
+                      image: 'assets/images/images3.png',
+                      tanggal: '27 maret 2023',
+                      judul: 'Masker itu Wajib',
+                      rumahsakit: "RS Cristoper Sukamoto",
+                    ),
+                  ),
+                  SizedBox(
+                    width: 14,
+                  ),
+                ],
+              ),
+            ),
             SizedBox(
               height: 81,
             ),

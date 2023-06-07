@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:antriajaa/models/beritaM.dart';
+import 'package:antriajaa/models/acaraM.dart';
 import 'package:antriajaa/theme.dart';
 
-class BeritaCard extends StatelessWidget {
-  final Berita berita;
+class AcaraCard extends StatelessWidget {
+  final Acara acara;
 
-  BeritaCard(this.berita);
+  AcaraCard(this.acara);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class BeritaCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 12),
               child: Image.asset(
-                berita.image,
+                acara.image,
                 height: 75,
                 width: 150,
                 fit: BoxFit.cover,
@@ -41,7 +41,7 @@ class BeritaCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    berita.tanggal,
+                    acara.tanggal,
                     style: blackRegulerTextStyle.copyWith(
                       fontSize: 7,
                     ),
@@ -50,7 +50,7 @@ class BeritaCard extends StatelessWidget {
                     height: 1,
                   ),
                   Text(
-                    berita.judul,
+                    acara.judul,
                     style: blackSemiBoldTextStyle.copyWith(
                       fontSize: 10,
                     ),
