@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pbmdoctor/pages/page_hasil_antri_cepat.dart';
 import 'package:pbmdoctor/theme.dart';
 import 'package:pbmdoctor/models/navbar.dart';
 import 'package:pbmdoctor/widgets/bottom_navbar_item.dart';
@@ -85,7 +86,14 @@ class pages_profil extends StatelessWidget {
                         'Logout',
                         style: whiteSemiBoldTextStyle.copyWith(fontSize: 16),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => page_hasil_antri_cepat(),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: redColor,
                         shape: RoundedRectangleBorder(
