@@ -33,7 +33,17 @@ TextStyle greyTextStyle = GoogleFonts.inter(
   color: darkGreyColor,
 );
 
+TextStyle greenTextStyle = GoogleFonts.inter(
+  fontWeight: FontWeight.w500,
+  color: greenColor,
+);
+
 TextStyle darkenGreyTextStyle = GoogleFonts.inter(
   fontWeight: FontWeight.w400,
   color: darkenGreyColor,
+);
+
+TextStyle whiteRegularTextStyle = GoogleFonts.inter(
+  fontWeight: FontWeight.w400,
+  color: whiteColor,
 );
