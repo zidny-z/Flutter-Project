@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pbmdoctor/pages/homepage_doctor.dart';
+import 'package:pbmdoctor/pages/list_doktor_poli.dart';
 import 'package:pbmdoctor/theme.dart';
 
 class hasil_antri_cards extends StatelessWidget {
@@ -47,7 +47,7 @@ class hasil_antri_cards extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => homepagedoctor(),
+                          builder: (context) => List_doktor_poli(),
                         ),
                       );
                     },
