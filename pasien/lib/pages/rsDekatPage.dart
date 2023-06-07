@@ -12,7 +12,7 @@ class RsDekat extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: const Text('Rumah Sakit Terdekat'),
-          backgroundColor: Colors.green,
+          backgroundColor: greenColor,
           leading: BackButton(
             color: Colors.white,
           ),
@@ -27,7 +27,6 @@ class RsDekat extends StatelessWidget {
                       name: 'RS M Khadafi',
                       image: 'assets/images/rumahsakit.png',
                       alamat: 'Jln. Mulu Jadian Kagak')),
-                  
                   RsCard(RumahSakit(
                       id: 1,
                       name: 'RS M Khadafi',

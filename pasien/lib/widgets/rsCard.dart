@@ -1,5 +1,5 @@
 import 'package:antriajaa/models/rsM.dart';
-import 'package:antriajaa/pages/homePage.dart';
+import 'package:antriajaa/pages/poliPage.dart';
 import 'package:flutter/material.dart';
 import 'package:antriajaa/theme.dart';
 
@@ -54,7 +54,7 @@ class RsCard extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePage(),
+                        builder: (context) => PoliPage(),
                       ),
                     );
                   },
