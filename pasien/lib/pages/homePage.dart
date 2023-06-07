@@ -2,6 +2,7 @@ import 'package:antriajaa/models/acaraM.dart';
 import 'package:antriajaa/models/navbarM.dart';
 import 'package:antriajaa/pages/antriCepat.dart';
 import 'package:antriajaa/pages/loginPage.dart';
+import 'package:antriajaa/pages/rsDekat.dart';
 import 'package:antriajaa/widgets/acaraCard.dart';
 import 'package:antriajaa/widgets/beritaCard.dart';
 import 'package:antriajaa/models/beritaM.dart';
@@ -49,44 +50,52 @@ class HomePage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Container(
-                            height: 100,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              color: darkGreenColor,
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 0),
-                                    child: Image.asset(
-                                      'assets/images/hospital.png',
-                                      height: 45,
-                                      width: 45,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    width: 90,
-                                    child: Center(
-                                      child: Text(
-                                        "Rumah Sakit Terdekat",
-                                        style: whiteMediumTextStyle.copyWith(
-                                          fontSize: 12,
-                                        ),
-                                        textAlign: TextAlign.center,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => RsDekat()));
+                            },
+                            child: Container(
+                              height: 100,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                color: darkGreenColor,
+                              ),
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 0),
+                                      child: Image.asset(
+                                        'assets/images/hospital.png',
+                                        height: 45,
+                                        width: 45,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Container(
+                                      width: 90,
+                                      child: Center(
+                                        child: Text(
+                                          "Rumah Sakit Terdekat",
+                                          style: whiteMediumTextStyle.copyWith(
+                                            fontSize: 12,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
