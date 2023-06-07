@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pbmdoctor/models/acara.dart';
 import 'package:pbmdoctor/models/berita.dart';
 import 'package:pbmdoctor/models/navbar.dart';
-import 'package:pbmdoctor/pages/absen_doctor.dart';
+// import 'package:pbmdoctor/pages/absen_doctor.dart';
+import 'package:pbmdoctor/pages/detail_berita.dart';
 import 'package:pbmdoctor/pages/page_list_pasien.dart';
 import 'package:pbmdoctor/pages/page_profil.dart';
 import 'package:pbmdoctor/theme.dart';
@@ -229,7 +230,7 @@ class homepagedoctor extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Absendoctor(),
+                          builder: (context) => Detailberita(),
                         ),
                       );
                     },
