@@ -2,16 +2,9 @@ import 'package:antriajaa/pages/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:antriajaa/theme.dart';
 
-class AntriCepat extends StatefulWidget {
-  // const AntriCepat({Key? key}) : super(key: key);
-  String? selectedValue = null;
-  final _dropdownFormKey = GlobalKey<FormState>();
+class AntriCepat extends StatelessWidget {
+  const AntriCepat({Key? key}) : super(key: key);
 
-  @override
-  State<AntriCepat> createState() => _AntriCepatState();
-}
-
-class _AntriCepatState extends State<AntriCepat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +41,6 @@ class _AntriCepatState extends State<AntriCepat> {
                     border: OutlineInputBorder(),
                     labelText: 'Nama',
                   ),
-                  keyboardType: TextInputType.number,
                 ),
               ),
             ),
@@ -74,9 +66,21 @@ class _AntriCepatState extends State<AntriCepat> {
             SizedBox(
               height: 20,
             ),
-            // DropdownButtonExample(),
-            // DropdownButtonFormField(
-            //     items: <DropdownMenuItem>['a', 'a'], onChanged: onChanged),
+            Container(
+              child: const SizedBox(
+                width: 310,
+                height: 47,
+                child: TextField(
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xffF6F6F6),
+                    border: OutlineInputBorder(),
+                    labelText: 'Poli',
+                  ),
+                ),
+              ),
+            ),
             SizedBox(
               height: 20,
             ),
