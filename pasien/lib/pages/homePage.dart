@@ -1,7 +1,9 @@
 import 'package:antriajaa/models/acaraM.dart';
 import 'package:antriajaa/models/navbarM.dart';
 import 'package:antriajaa/pages/antriCepatPage.dart';
+import 'package:antriajaa/pages/antrianPage.dart';
 import 'package:antriajaa/pages/loginPage.dart';
+import 'package:antriajaa/pages/profilPage.dart';
 import 'package:antriajaa/pages/rsDekatPage.dart';
 import 'package:antriajaa/widgets/acaraCard.dart';
 import 'package:antriajaa/widgets/beritaCard.dart';
@@ -329,7 +331,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => LoginPage(),
+                          builder: (context) => AntrianPage(),
                         ),
                       );
                     },
@@ -342,7 +344,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => LoginPage(),
+                          builder: (context) => ProfilPage(),
                         ),
                       );
                     },

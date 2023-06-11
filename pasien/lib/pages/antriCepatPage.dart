@@ -1,4 +1,4 @@
-import 'package:antriajaa/pages/homePage.dart';
+import 'package:antriajaa/pages/hasilAntriPage.dart';
 import 'package:flutter/material.dart';
 import 'package:antriajaa/theme.dart';
 
@@ -92,7 +92,7 @@ class AntriCepat extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HomePage(),
+                      builder: (context) => HasilAntriPage(),
                     ),
                   );
                 },
