@@ -1,20 +1,21 @@
-import 'package:antriajaa/models/acaraM.dart';
-import 'package:antriajaa/models/navbarM.dart';
-import 'package:antriajaa/pages/antriCepatPage.dart';
-import 'package:antriajaa/pages/antrianPage.dart';
-import 'package:antriajaa/pages/loginPage.dart';
-import 'package:antriajaa/pages/profilPage.dart';
-import 'package:antriajaa/pages/rsDekatPage.dart';
-import 'package:antriajaa/widgets/acaraCard.dart';
-import 'package:antriajaa/widgets/beritaCard.dart';
-import 'package:antriajaa/models/beritaM.dart';
-import 'package:antriajaa/theme.dart';
-import 'package:antriajaa/widgets/bottomNavbar.dart';
+import 'package:antri/models/acaraM.dart';
+import 'package:antri/pages/antriCepatPage.dart';
+import 'package:antri/pages/rsDekatPage.dart';
+import 'package:antri/widgets/acaraCard.dart';
+import 'package:antri/widgets/beritaCard.dart';
+import 'package:antri/models/beritaM.dart';
+import 'package:antri/theme.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+  // static const routename = "/homepage";
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -287,78 +288,6 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      // navbar
-      floatingActionButton: Container(
-        height: 81,
-        width: 357,
-        decoration: BoxDecoration(
-          color: whiteColor,
-          border: Border(
-            top: BorderSide(
-              color: greyColor,
-              width: 3,
-            ),
-          ),
-        ),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 15.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 30,
-                right: 30,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LoginPage(),
-                        ),
-                      );
-                    },
-                    child: Bottomnavbaritem(
-                      Navbar(id: 1, image: 'assets/icons/home_active.png'),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AntrianPage(),
-                        ),
-                      );
-                    },
-                    child: Bottomnavbaritem(
-                      Navbar(id: 2, image: 'assets/icons/list_unactive.png'),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProfilPage(),
-                        ),
-                      );
-                    },
-                    child: Bottomnavbaritem(
-                      Navbar(id: 4, image: 'assets/icons/user_unactive.png'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

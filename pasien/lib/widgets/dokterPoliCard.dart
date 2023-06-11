@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:antriajaa/theme.dart';
+import 'package:antri/theme.dart';
 
 class DokterPoliCard extends StatelessWidget {
-@override
+  @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.all(Radius.circular(10)),

@@ -1,6 +1,6 @@
-import 'package:antriajaa/pages/antrianPage.dart';
+import 'package:antri/pages/antrianPage.dart';
 import 'package:flutter/material.dart';
-import 'package:antriajaa/theme.dart';
+import 'package:antri/theme.dart';
 
 class HasilAntriCard extends StatelessWidget {
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:antriajaa/theme.dart';
+import 'package:antri/theme.dart';
 
 class AntrianCard extends StatelessWidget {
   @override

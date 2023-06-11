@@ -1,10 +1,5 @@
-import 'package:antriajaa/models/navbarM.dart';
-import 'package:antriajaa/pages/antrianPage.dart';
-import 'package:antriajaa/pages/homePage.dart';
-import 'package:antriajaa/pages/loginPage.dart';
-import 'package:antriajaa/widgets/bottomNavbar.dart';
 import 'package:flutter/material.dart';
-import 'package:antriajaa/theme.dart';
+import 'package:antri/theme.dart';
 
 class ProfilPage extends StatelessWidget {
   @override
@@ -86,14 +81,7 @@ class ProfilPage extends StatelessWidget {
                         'Logout',
                         style: whiteSemiBoldTextStyle.copyWith(fontSize: 16),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginPage(),
-                          ),
-                        );
-                      },
+                      onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: redColor,
                         shape: RoundedRectangleBorder(
@@ -107,77 +95,6 @@ class ProfilPage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: Container(
-        height: 81,
-        width: 357,
-        decoration: BoxDecoration(
-          color: whiteColor,
-          border: Border(
-            top: BorderSide(
-              color: greyColor,
-              width: 3,
-            ),
-          ),
-        ),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 15.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 30,
-                right: 30,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomePage(),
-                        ),
-                      );
-                    },
-                    child: Bottomnavbaritem(
-                      Navbar(id: 1, image: 'assets/icons/home_active.png'),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AntrianPage(),
-                        ),
-                      );
-                    },
-                    child: Bottomnavbaritem(
-                      Navbar(id: 2, image: 'assets/icons/list_unactive.png'),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProfilPage(),
-                        ),
-                      );
-                    },
-                    child: Bottomnavbaritem(
-                      Navbar(id: 4, image: 'assets/icons/user_unactive.png'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
