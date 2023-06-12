@@ -1,13 +1,49 @@
-import 'package:antriajaa/pages/homePage.dart';
-import 'package:antriajaa/pages/registerPage.dart';
-import 'package:antriajaa/theme.dart';
+import 'package:antri/pages/Navbar.dart';
+import 'package:antri/pages/homePage.dart';
+import 'package:antri/theme.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+Future<FirebaseApp> _initializeFirebase() async {
+  FirebaseApp firebaseApp = await Firebase.initializeApp();
+  return firebaseApp;
+}
+
+
+  static Future<User?> loginUsingEmailPassword(
+    {required String Email,
+    required String Password,
+    required BuildContext context}) async {
+      FirebaseAuth auth = FirebaseAuth.instance;
+      User? user;
+      try {
+        UserCredential userCredential = await auth.signInWithEmailAndPassword(email: email, password: password);
+        user = userCredential.user;
+      } on FirebaseAuthException catch (e) {
+        if (e.code == "user-not-found") {
+            print('No User')          
+        }
+      }
+    }
+
+
+
+  @override
   Widget build(BuildContext context) {
+    
+
+    TextEditingController _emailTextController = TextEditingController();
+    TextEditingController _passwordTextController = TextEditingController();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -24,18 +60,19 @@ class LoginPage extends StatelessWidget {
               height: 30,
             ),
             Container(
-              child: const SizedBox(
+              child: SizedBox(
                 width: 310,
                 height: 47,
                 child: TextField(
+                  controller: _emailTextController,
                   obscureText: false,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Color(0xffF6F6F6),
                     border: OutlineInputBorder(),
-                    labelText: 'Nomor BPJS',
+                    labelText: 'Email',
                   ),
-                  keyboardType: TextInputType.number,
+                  // keyboardType: TextInputType.number,
                 ),
               ),
             ),
@@ -47,6 +84,7 @@ class LoginPage extends StatelessWidget {
                 width: 310,
                 height: 47,
                 child: TextField(
+                  controller: _passwordTextController,
                   obscureText: true,
                   decoration: InputDecoration(
                     filled: true,
@@ -64,13 +102,15 @@ class LoginPage extends StatelessWidget {
               width: 310,
               height: 48,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomePage(),
-                    ),
-                  );
+                onPressed: () async {
+                  User? user = await loginUsingEmailPassword(
+                      email: _emailTextController.text,
+                      password: _passwordTextController.text,
+                      context: context);
+                  print(user);
+                  if (user != null) {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: context)=>Navbar())
+                  }
                 },
                 child: Text(
                   'Masuk',
@@ -96,12 +136,12 @@ class LoginPage extends StatelessWidget {
               height: 48,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RegisterPage(),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => RegisterPage(),
+                  //   ),
+                  // );
                 },
                 child: Text(
                   'Daftar',

@@ -1,6 +1,6 @@
-import 'package:antriajaa/models/rsM.dart';
-import 'package:antriajaa/theme.dart';
-import 'package:antriajaa/widgets/rsCard.dart';
+import 'package:antri/models/rsM.dart';
+import 'package:antri/theme.dart';
+import 'package:antri/widgets/rsCard.dart';
 import 'package:flutter/material.dart';
 
 class RsDekat extends StatelessWidget {

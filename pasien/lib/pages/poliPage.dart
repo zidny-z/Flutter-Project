@@ -1,7 +1,7 @@
-import 'package:antriajaa/models/poliM.dart';
-import 'package:antriajaa/widgets/poliCard.dart';
+import 'package:antri/models/poliM.dart';
+import 'package:antri/widgets/poliCard.dart';
 import 'package:flutter/material.dart';
-import 'package:antriajaa/theme.dart';
+import 'package:antri/theme.dart';
 
 class PoliPage extends StatelessWidget {
   const PoliPage({Key? key}) : super(key: key);

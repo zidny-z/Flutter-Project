@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "868331640642",
+    "project_id": "super-admin-antriajaa-web",
+    "storage_bucket": "super-admin-antriajaa-web.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868331640642:android:13ea11217f7ba64bf39adb",
+        "android_client_info": {
+          "package_name": "com.example.antri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "868331640642-r7osdn7lhmotibscmsj3a6kfh3qgb85r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk3SApXRwcxDA-HPA4N9PgwoGFmapAp5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "868331640642-r7osdn7lhmotibscmsj3a6kfh3qgb85r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "868331640642-a5lp6v9j7gv2eke2q6g79tuu8duiuo2k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.antri.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

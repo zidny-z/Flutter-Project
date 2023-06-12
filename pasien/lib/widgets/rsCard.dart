@@ -1,7 +1,7 @@
-import 'package:antriajaa/models/rsM.dart';
-import 'package:antriajaa/pages/poliPage.dart';
+import 'package:antri/models/rsM.dart';
+import 'package:antri/pages/poliPage.dart';
 import 'package:flutter/material.dart';
-import 'package:antriajaa/theme.dart';
+import 'package:antri/theme.dart';
 
 class RsCard extends StatelessWidget {
   final RumahSakit rs;
