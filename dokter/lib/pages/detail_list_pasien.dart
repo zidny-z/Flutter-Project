@@ -8,7 +8,12 @@ import 'package:pbmdoctor/models/navbar.dart';
 import 'package:pbmdoctor/widgets/bottom_navbar_item.dart';
 import 'page_list_pasien.dart';
 
-class detaillistpasien extends StatelessWidget {
+class detaillistpasien extends StatefulWidget {
+  @override
+  State<detaillistpasien> createState() => _detaillistpasienState();
+}
+
+class _detaillistpasienState extends State<detaillistpasien> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
