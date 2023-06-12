@@ -1,9 +1,11 @@
-import 'package:antri/pages/Navbar.dart';
-import 'package:antri/pages/homePage.dart';
+import 'package:antri/pages/page5.dart';
 import 'package:antri/theme.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
+import '../reusable_widget/reusable_widget.dart';
+import 'package:antri/services/auth_services.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -13,37 +15,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-Future<FirebaseApp> _initializeFirebase() async {
-  FirebaseApp firebaseApp = await Firebase.initializeApp();
-  return firebaseApp;
-}
-
-
-  static Future<User?> loginUsingEmailPassword(
-    {required String Email,
-    required String Password,
-    required BuildContext context}) async {
-      FirebaseAuth auth = FirebaseAuth.instance;
-      User? user;
-      try {
-        UserCredential userCredential = await auth.signInWithEmailAndPassword(email: email, password: password);
-        user = userCredential.user;
-      } on FirebaseAuthException catch (e) {
-        if (e.code == "user-not-found") {
-            print('No User')          
-        }
-      }
-    }
-
-
+  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _passwordTextController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    
-
-    TextEditingController _emailTextController = TextEditingController();
-    TextEditingController _passwordTextController = TextEditingController();
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -60,20 +37,24 @@ Future<FirebaseApp> _initializeFirebase() async {
               height: 30,
             ),
             Container(
+              // color: blackColor,
               child: SizedBox(
                 width: 310,
                 height: 47,
-                child: TextField(
-                  controller: _emailTextController,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Color(0xffF6F6F6),
-                    border: OutlineInputBorder(),
-                    labelText: 'Email',
-                  ),
-                  // keyboardType: TextInputType.number,
-                ),
+                child:
+                    // TextField(
+                    //   controller: _emailTextController,
+                    //   obscureText: false,
+                    //   decoration: InputDecoration(
+                    //     filled: true,
+                    //     fillColor: Color(0xffF6F6F6),
+                    //     border: OutlineInputBorder(),
+                    //     labelText: 'Email',
+                    //   ),
+                    //   // keyboardType: TextInputType.number,
+                    // ),
+                    reusableTextField("Enter UserName", Icons.person_outline,
+                        false, _emailTextController),
               ),
             ),
             SizedBox(
@@ -83,51 +64,38 @@ Future<FirebaseApp> _initializeFirebase() async {
               child: SizedBox(
                 width: 310,
                 height: 47,
-                child: TextField(
-                  controller: _passwordTextController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Color(0xffF6F6F6),
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
-                  ),
-                ),
+                child:
+                    // TextField(
+                    //   controller: _passwordTextController,
+                    //   obscureText: true,
+                    //   decoration: InputDecoration(
+                    //     filled: true,
+                    //     fillColor: Color(0xffF6F6F6),
+                    //     border: OutlineInputBorder(),
+                    //     labelText: 'Password',
+                    //   ),
+                    // ),
+                    reusableTextField("Enter Password", Icons.lock_outline,
+                        true, _passwordTextController),
               ),
             ),
             SizedBox(
               height: 20,
             ),
-            Container(
-              width: 310,
-              height: 48,
-              child: ElevatedButton(
-                onPressed: () async {
-                  User? user = await loginUsingEmailPassword(
+            firebaseUIButton(context, "Masuk", () async {
+              FirebaseAuth.instance
+                  .signInWithEmailAndPassword(
                       email: _emailTextController.text,
-                      password: _passwordTextController.text,
-                      context: context);
-                  print(user);
-                  if (user != null) {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: context)=>Navbar())
-                  }
-                },
-                child: Text(
-                  'Masuk',
-                  style: whiteMediumTextStyle,
-                ),
-                style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100.0),
-                      ),
-                    ),
-                    backgroundColor:
-                        MaterialStatePropertyAll<Color>(greenColor),
-                    foregroundColor:
-                        MaterialStatePropertyAll<Color>(whiteColor)),
-              ),
-            ),
+                      password: _passwordTextController.text)
+                  .then((value) {
+                print(_passwordTextController.text);
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context) => Page5()));
+                // print('masuk');
+              }).onError((error, stackTrace) {
+                print("Error ${error.toString()}");
+              });
+            }),
             SizedBox(
               height: 10,
             ),
