@@ -5,10 +5,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import '../reusable_widget/reusable_widget.dart';
-import 'package:antri/services/auth_services.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final Function()? onTap;
+  LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -17,7 +17,33 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController _emailTextController = TextEditingController();
   TextEditingController _passwordTextController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
+
+  void showmessage(String errorMessage) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(title: Text(errorMessage));
+        });
+  }
+
+  void _signUserIn(BuildContext context) async {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Center(child: CircularProgressIndicator());
+        });
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailTextController.text,
+        password: _passwordTextController.text,
+      );
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
+      //wrong Email
+      showmessage(e.code);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,20 +67,8 @@ class _LoginPageState extends State<LoginPage> {
               child: SizedBox(
                 width: 310,
                 height: 47,
-                child:
-                    // TextField(
-                    //   controller: _emailTextController,
-                    //   obscureText: false,
-                    //   decoration: InputDecoration(
-                    //     filled: true,
-                    //     fillColor: Color(0xffF6F6F6),
-                    //     border: OutlineInputBorder(),
-                    //     labelText: 'Email',
-                    //   ),
-                    //   // keyboardType: TextInputType.number,
-                    // ),
-                    reusableTextField("Enter UserName", Icons.person_outline,
-                        false, _emailTextController),
+                child: reusableTextField("Enter UserName", Icons.person_outline,
+                    false, _emailTextController),
               ),
             ),
             SizedBox(
@@ -64,38 +78,31 @@ class _LoginPageState extends State<LoginPage> {
               child: SizedBox(
                 width: 310,
                 height: 47,
-                child:
-                    // TextField(
-                    //   controller: _passwordTextController,
-                    //   obscureText: true,
-                    //   decoration: InputDecoration(
-                    //     filled: true,
-                    //     fillColor: Color(0xffF6F6F6),
-                    //     border: OutlineInputBorder(),
-                    //     labelText: 'Password',
-                    //   ),
-                    // ),
-                    reusableTextField("Enter Password", Icons.lock_outline,
-                        true, _passwordTextController),
+                child: reusableTextField("Enter Password", Icons.lock_outline,
+                    true, _passwordTextController),
               ),
             ),
             SizedBox(
               height: 20,
             ),
-            firebaseUIButton(context, "Masuk", () async {
-              FirebaseAuth.instance
-                  .signInWithEmailAndPassword(
-                      email: _emailTextController.text,
-                      password: _passwordTextController.text)
-                  .then((value) {
-                print(_passwordTextController.text);
-                Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (context) => Page5()));
-                // print('masuk');
-              }).onError((error, stackTrace) {
-                print("Error ${error.toString()}");
-              });
-            }),
+            firebaseUIButton(
+              context, "Masuk",
+              // () async {
+              //   FirebaseAuth.instance
+              //       .signInWithEmailAndPassword(
+              //           email: _emailTextController.text,
+              //           password: _passwordTextController.text)
+              //       .then((value) {
+              //     print(_passwordTextController.text);
+              //     Navigator.pushReplacement(
+              //         context, MaterialPageRoute(builder: (context) => Page5()));
+              //     // print('masuk');
+              //   }).onError((error, stackTrace) {
+              //     print("Error ${error.toString()}");
+              //   });
+              // }
+              () => _signUserIn(context),
+            ),
             SizedBox(
               height: 10,
             ),

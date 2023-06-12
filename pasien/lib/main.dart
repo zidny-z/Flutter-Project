@@ -1,6 +1,5 @@
 import 'package:antri/firebase_options.dart';
-import 'package:antri/pages/Navbar.dart';
-import 'package:antri/pages/loginPage.dart';
+import 'package:antri/pages/authPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.interTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      home: const AuthPage(),
       // home: const Navbar(),
     );
   }
