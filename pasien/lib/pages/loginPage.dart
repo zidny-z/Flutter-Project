@@ -1,4 +1,3 @@
-import 'package:antri/pages/page5.dart';
 import 'package:antri/theme.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -38,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
         password: _passwordTextController.text,
       );
       Navigator.pop(context);
+      print('cok');
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       //wrong Email

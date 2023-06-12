@@ -6,6 +6,7 @@ import 'package:antri/widgets/beritaCard.dart';
 import 'package:antri/models/beritaM.dart';
 import 'package:antri/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,6 +17,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // final CollectionReference _news =
+  //     FirebaseFirestore.instance.collection('news');
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
