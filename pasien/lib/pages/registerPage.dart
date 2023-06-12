@@ -1,34 +1,11 @@
-// import 'package:camera/camera.dart';
-
-// import 'package:pbmdoctor/pages/camera_page.dart';
-import 'dart:io';
-import 'package:image_picker/image_picker.dart';
-import 'package:cross_file/cross_file.dart';
-import 'homepage_doctor.dart';
-import 'loginPage.dart';
-import 'package:pbmdoctor/theme.dart';
+import 'package:antriajaa/pages/homePage.dart';
+import 'package:antriajaa/pages/loginPage.dart';
+import 'package:antriajaa/theme.dart';
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatefulWidget {
-  @override
-  State<RegisterPage> createState() => _RegisterPageState();
-}
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
-class _RegisterPageState extends State<RegisterPage> {
-  File? _image;
-
-  Future getImage() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.camera);
-    if (image == null) return;
-
-    final imageTemporary = File(image.path);
-
-    setState(() {
-      this._image = imageTemporary;
-    });
-  }
-
-  // const RegisterPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,26 +98,19 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             GestureDetector(
                 child: Container(
-                  width: 310,
-                  height: 175,
-                  child: _image != null
-                      ? Image.file(
-                          _image!,
-                          width: 310,
-                          height: 175,
-                          fit: BoxFit.cover,
-                        )
-                      : Image.asset('assets/images/uploud.png'),
-                  decoration: BoxDecoration(
-                      // color: Colors.black,
-                      // image: DecorationImage(
-                      //     image: AssetImage('assets/images/uploud.png'),
-                      //     fit: BoxFit.fitWidth),
-                      // borderRadius: BorderRadius.circular(8.0),
+                    width: 310,
+                    height: 175,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/uploud.png'),
+                          fit: BoxFit.fitWidth),
+                      borderRadius: BorderRadius.circular(8.0),
                       // button text
-                      ),
-                ),
-                onTap: () => getImage()),
+                    )),
+                onTap: () {
+                  print("you clicked me");
+                }),
             SizedBox(
               height: 10,
             ),
@@ -152,7 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => homepagedoctor(),
+                      builder: (context) => HomePage(),
                     ),
                   );
                 },
