@@ -1,4 +1,5 @@
-import 'package:antre/pages/homepage.dart';
+import 'package:antre/pages/Navbar.dart';
+import 'package:antre/pages/registerPage.dart';
 import 'package:antre/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: FutureBuilder(
         future: Firebase.initializeApp(),
         builder: (context, snapshot) {
@@ -109,19 +111,20 @@ class _SignInScreenState extends State<SignInScreen> {
                         context: context);
                     if (user != null) {
                       Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                          MaterialPageRoute(builder: (context) => Navbar()));
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    primary:
-                        Color(0xFF308E78), // Atur warna latar belakang tombol
+                    backgroundColor:
+                        greenColor, // Atur warna latar belakang tombol
+                    // fixedSize : 150,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                           10.0), // Atur border radius tombol
                     ),
                   ),
                   child: const Text(
-                    'Login',
+                    '     Login     ',
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
@@ -131,7 +134,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    MaterialPageRoute(builder: (context) => RegisterPage()),
                   );
                 },
                 child: const Text('Belum punya akun? Daftar disini',

@@ -1,7 +1,7 @@
 import 'package:antre/pages/authPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        textTheme: GoogleFonts.interTextTheme(),
-      ),
+          // textTheme: GoogleFonts.interTextTheme(),
+          ),
       debugShowCheckedModeBanner: false,
       home: AuthPage(),
     );

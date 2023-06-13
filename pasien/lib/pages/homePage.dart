@@ -22,6 +22,16 @@ class _HomePageState extends State<HomePage> {
   final CollectionReference _news =
       FirebaseFirestore.instance.collection('news');
 
+  Future<void> getData() async {
+    // Get docs from collection reference
+    QuerySnapshot querySnapshot = await _news.get();
+
+    // Get data from docs and convert map to List
+    final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
+
+    print(allData);
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -182,7 +192,12 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               height: 135,
-
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  
+                ],
+              ),
               //   child: StreamBuilder(
               //     stream: _news.snapshots(),
               //     builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 Color greenColor = Color(0xff4CAF50);
 Color darkGreenColor = Color(0xff2C7F2F);
@@ -11,40 +11,40 @@ Color blackColor = Color(0xff2F2E36);
 Color whiteColor = Color(0xffffffff);
 Color redColor = Color(0xffEB5151);
 
-TextStyle whiteSemiBoldTextStyle = GoogleFonts.inter(
+TextStyle whiteSemiBoldTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
   color: whiteColor,
 );
-TextStyle whiteMediumTextStyle = GoogleFonts.inter(
+TextStyle whiteMediumTextStyle = TextStyle(
   fontWeight: FontWeight.w500,
   color: whiteColor,
 );
 
-TextStyle blackSemiBoldTextStyle = GoogleFonts.inter(
+TextStyle blackSemiBoldTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
   color: blackColor,
 );
-TextStyle blackRegulerTextStyle = GoogleFonts.inter(
+TextStyle blackRegulerTextStyle = TextStyle(
   fontWeight: FontWeight.w400,
   color: blackColor,
 );
 
-TextStyle greyTextStyle = GoogleFonts.inter(
+TextStyle greyTextStyle = TextStyle(
   fontWeight: FontWeight.w500,
   color: darkGreyColor,
 );
 
-TextStyle greenTextStyle = GoogleFonts.inter(
+TextStyle greenTextStyle = TextStyle(
   fontWeight: FontWeight.w500,
   color: greenColor,
 );
 
-TextStyle darkenGreyTextStyle = GoogleFonts.inter(
+TextStyle darkenGreyTextStyle = TextStyle(
   fontWeight: FontWeight.w400,
   color: darkenGreyColor,
 );
 
-TextStyle whiteRegularTextStyle = GoogleFonts.inter(
+TextStyle whiteRegularTextStyle = TextStyle(
   fontWeight: FontWeight.w400,
   color: whiteColor,
 );
