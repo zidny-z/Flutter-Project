@@ -3,7 +3,7 @@
 // import 'package:pbmdoctor/pages/camera_page.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
-import 'package:cross_file/cross_file.dart';
+// import 'package:cross_file/cross_file.dart';
 import 'homepage_doctor.dart';
 import 'loginPage.dart';
 import 'package:pbmdoctor/theme.dart';

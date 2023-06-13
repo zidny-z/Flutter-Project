@@ -3,14 +3,17 @@ import 'package:pbmdoctor/models/acara.dart';
 import 'package:pbmdoctor/models/berita.dart';
 import 'package:pbmdoctor/models/navbar.dart';
 import 'package:pbmdoctor/pages/absen_doctor.dart';
+import 'package:pbmdoctor/pages/nearby_location_screen.dart';
+import 'package:pbmdoctor/pages/nearby_page.dart';
 // import 'package:pbmdoctor/pages/absen_doctor.dart';
-import 'package:pbmdoctor/pages/detail_berita.dart';
+// import 'package:pbmdoctor/pages/detail_berita.dart';
 import 'package:pbmdoctor/pages/page_list_pasien.dart';
 import 'package:pbmdoctor/pages/page_profil.dart';
 import 'package:pbmdoctor/theme.dart';
 import 'package:pbmdoctor/widgets/acara_cards.dart';
 import 'package:pbmdoctor/widgets/berita_cards.dart';
 import 'package:pbmdoctor/widgets/bottom_navbar_item.dart';
+// import 'package:pbmdoctor/pages/rsDekatPage.dart';
 
 class homepagedoctor extends StatelessWidget {
   @override
@@ -81,7 +84,7 @@ class homepagedoctor extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Detailberita(),
+                          builder: (context) => NearbyLocationsScreen(),
                         ),
                       );
                     },

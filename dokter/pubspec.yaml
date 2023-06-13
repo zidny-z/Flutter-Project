@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^5.0.0
+  google_maps_flutter: ^2.3.0
+  http: ^1.0.0
   image_picker: ^0.8.8
   path_provider: ^2.0.15
 
