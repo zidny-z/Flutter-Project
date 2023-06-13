@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:antre/pages/signin_screen.dart';
+import 'package:antre/pages/uploudGambar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:antre/theme.dart';
@@ -12,20 +13,20 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  File? _image;
+  // File? _image;
 
-  Future getImage() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.camera);
-    if (image == null) return;
+  // Future getImage() async {
+  //   final image = await ImagePicker().pickImage(source: ImageSource.camera);
+  //   if (image == null) return;
 
-    final imageTemporary = File(image.path);
+  //   final imageTemporary = File(image.path);
 
-    setState(() {
-      this._image = imageTemporary;
-    });
+  //   setState(() {
+  //     this._image = imageTemporary;
+  //   });
 
-    return imageTemporary;
-  }
+  //   return imageTemporary;
+  // }
 
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -47,7 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SignInScreen()),
+          MaterialPageRoute(builder: (context) => UploadImageScreen()),
         );
       }
     } catch (error) {
@@ -131,24 +132,26 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(
               height: 10,
             ),
-            GestureDetector(
-                child: Container(
-                  width: 310,
-                  height: 175,
-                  child: _image != null
-                      ? Image.file(
-                          _image!,
-                          width: 310,
-                          height: 175,
-                          fit: BoxFit.cover,
-                        )
-                      : Image.asset('assets/images/uploud.png'),
-                  decoration: BoxDecoration(),
-                ),
-                onTap: () => getImage()),
-            SizedBox(
-              height: 10,
-            ),
+            // GestureDetector(
+            //     child: Container(
+            //       width: 310,
+            //       height: 175,
+            //       child:
+            //       // _image != null
+            //       //     ? Image.file(
+            //       //         _image!,
+            //       //         width: 310,
+            //       //         height: 175,
+            //       //         fit: BoxFit.cover,
+            //       //       )
+            //       //     :
+            //           Image.asset('assets/images/uploud.png'),
+            //       decoration: BoxDecoration(),
+            //     ),
+            //     onTap: () => getImage()),
+            // SizedBox(
+            //   height: 10,
+            // ),
             Container(
               width: 310,
               height: 48,
