@@ -1,24 +1,26 @@
-import 'package:antri/models/acaraM.dart';
-import 'package:antri/pages/antriCepatPage.dart';
-import 'package:antri/pages/rsDekatPage.dart';
-import 'package:antri/widgets/acaraCard.dart';
-import 'package:antri/widgets/beritaCard.dart';
-import 'package:antri/models/beritaM.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/models/acaraM.dart';
+import 'package:antre/pages/antriCepatPage.dart';
+import 'package:antre/pages/rsDekatPage.dart';
+import 'package:antre/widgets/acaraCard.dart';
+import 'package:antre/widgets/beritaCard.dart';
+import 'package:antre/models/beritaM.dart';
+import 'package:antre/theme.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-  // static const routename = "/homepage";
+  const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  // final CollectionReference _news =
-  //     FirebaseFirestore.instance.collection('news');
+  final _user = FirebaseAuth.instance.currentUser?.email;
+
+  final CollectionReference _news =
+      FirebaseFirestore.instance.collection('news');
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Text(
-                        'nur fitri',
+                        _user!,
                         style: whiteRegularTextStyle.copyWith(
                           fontSize: 20,
                         ),
@@ -111,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => AntriCepat()));
+                                      builder: (context) => antreCepat()));
                             },
                             child: Container(
                               height: 100,
@@ -180,47 +182,62 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               height: 135,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  SizedBox(
-                    width: 12,
-                  ),
-                  BeritaCard(
-                    Berita(
-                      id: 1,
-                      image: 'assets/images/images1.png',
-                      tanggal: '27 Maret 2023',
-                      judul: 'Kewajiban Vaksin Untuk Mudik ',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 14,
-                  ),
-                  BeritaCard(
-                    Berita(
-                      id: 2,
-                      image: 'assets/images/images2.png',
-                      tanggal: '27 maret 2023',
-                      judul: 'Masker itu Wajib',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 14,
-                  ),
-                  BeritaCard(
-                    Berita(
-                      id: 3,
-                      image: 'assets/images/images3.png',
-                      tanggal: '27 maret 2023',
-                      judul: 'Masker itu Wajib',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 14,
-                  ),
-                ],
-              ),
+
+              //   child: StreamBuilder(
+              //     stream: _news.snapshots(),
+              //     builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+              //        if (streamSnapshot.hasData) {
+              // return ListView.builder(
+              //    itemBuilder: (context, index) {
+              //     final DocumentSnapshot documentSnapshot =
+              //         streamSnapshot.data!.docs[index];
+              //     return BeritaCard(Berita(id: documentSnapshot['id'], image: documentSnapshot['image'], tanggal: documentSnapshot['date'], body: documentSnapshot['body'], judul: documentSnapshot['title']));
+              // );
+
+              //     },
+              //   )
+              //   ),
+              // child: ListView(
+              //   scrollDirection: Axis.horizontal,
+              //   children: [
+              //     SizedBox(
+              //       width: 12,
+              //     ),
+              //     BeritaCard(
+              //       Berita(
+              //         id: 1,
+              //         image: 'assets/images/images1.png',
+              //         tanggal: '27 Maret 2023',
+              //         judul: 'Kewajiban Vaksin Untuk Mudik ',
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 14,
+              //     ),
+              //     BeritaCard(
+              //       Berita(
+              //         id: 2,
+              //         image: 'assets/images/images2.png',
+              //         tanggal: '27 maret 2023',
+              //         judul: 'Masker itu Wajib',
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 14,
+              //     ),
+              //     BeritaCard(
+              //       Berita(
+              //         id: 3,
+              //         image: 'assets/images/images3.png',
+              //         tanggal: '27 maret 2023',
+              //         judul: 'Masker itu Wajib',
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 14,
+              //     ),
+              //   ],
+              // ),
             ),
 
             //awal fitur acara

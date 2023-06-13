@@ -1,4 +1,4 @@
-package com.example.antri
+package com.example.antre
 
 import io.flutter.embedding.android.FlutterActivity
 

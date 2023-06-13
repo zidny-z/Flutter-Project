@@ -1,7 +1,7 @@
-import 'package:antri/pages/antrianPage.dart';
-import 'package:antri/widgets/dokterPoliCard.dart';
+import 'package:antre/pages/antrianPage.dart';
+import 'package:antre/widgets/dokterPoliCard.dart';
 import 'package:flutter/material.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/theme.dart';
 
 class DokterPoliPage extends StatelessWidget {
   @override
@@ -55,7 +55,7 @@ class DokterPoliPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AntrianPage(),
+                          builder: (context) => antreanPage(),
                         ),
                       );
                     },

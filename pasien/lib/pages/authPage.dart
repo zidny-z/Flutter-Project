@@ -1,5 +1,5 @@
-import 'package:antri/pages/homePage.dart';
-import 'package:antri/pages/loginPage.dart';
+import 'package:antre/pages/Navbar.dart';
+import 'package:antre/pages/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -13,11 +13,12 @@ class AuthPage extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return HomePage();
+            return Navbar();
           } else {
-            return LoginPage(
-              onTap: () {},
-            );
+            // return LoginPage(
+            //     // onTap: () {},
+            //     );
+            return SignInScreen();
           }
         },
       ),

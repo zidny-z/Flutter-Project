@@ -1,52 +1,104 @@
-import 'package:antri/theme.dart';
+import 'package:antre/pages/Navbar.dart';
+import 'package:antre/pages/page5.dart';
+import 'package:antre/theme.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 import '../reusable_widget/reusable_widget.dart';
 
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: FutureBuilder(
+        future: Firebase.initializeApp(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return LoginPage(
+                // onTap: () {},
+                );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
+    );
+  }
+}
+
 class LoginPage extends StatefulWidget {
-  final Function()? onTap;
-  LoginPage({super.key, required this.onTap});
+  // final Function()? onTap;
+  // LoginPage({super.key, required this.onTap});
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController _emailTextController = TextEditingController();
-  TextEditingController _passwordTextController = TextEditingController();
+  // TextEditingController _emailTextController = TextEditingController();
+  // TextEditingController _passwordTextController = TextEditingController();
 
-  void showmessage(String errorMessage) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(title: Text(errorMessage));
-        });
-  }
+  // void showmessage(String errorMessage) {
+  //   showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return AlertDialog(title: Text(errorMessage));
+  //       });
+  // }
 
-  void _signUserIn(BuildContext context) async {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return Center(child: CircularProgressIndicator());
-        });
+  // void _signUserIn(BuildContext context) async {
+  //   showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return Center(child: CircularProgressIndicator());
+  //       });
+  //   try {
+  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //       email: _emailTextController.text,
+  //       password: _passwordTextController.text,
+  //     );
+  //     Navigator.pop(context);
+  //     print('cok');
+  //   } on FirebaseAuthException catch (e) {
+  //     Navigator.pop(context);
+  //     //wrong Email
+  //     showmessage(e.code);
+  //   }
+  // }
+  static Future<User?> loginUsingEmailPassword(
+      {required String email,
+      required String password,
+      required BuildContext context}) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    User? user;
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailTextController.text,
-        password: _passwordTextController.text,
-      );
-      Navigator.pop(context);
-      print('cok');
+      UserCredential userCredential = await auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      user = userCredential.user;
     } on FirebaseAuthException catch (e) {
-      Navigator.pop(context);
-      //wrong Email
-      showmessage(e.code);
+      if (e.code == "user-not-found") {
+        print("no user found for that email");
+      }
     }
+    return user;
   }
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _emailTextController = TextEditingController();
+    TextEditingController _passwordTextController = TextEditingController();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -85,24 +137,49 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: 20,
             ),
-            firebaseUIButton(
-              context, "Masuk",
-              // () async {
-              //   FirebaseAuth.instance
-              //       .signInWithEmailAndPassword(
-              //           email: _emailTextController.text,
-              //           password: _passwordTextController.text)
-              //       .then((value) {
-              //     print(_passwordTextController.text);
-              //     Navigator.pushReplacement(
-              //         context, MaterialPageRoute(builder: (context) => Page5()));
-              //     // print('masuk');
-              //   }).onError((error, stackTrace) {
-              //     print("Error ${error.toString()}");
-              //   });
-              // }
-              () => _signUserIn(context),
-            ),
+            ElevatedButton(
+                onPressed: () async {
+                  User? user = await loginUsingEmailPassword(
+                      email: _emailTextController.text,
+                      password: _passwordTextController.text,
+                      context: context);
+                  if (user != null) {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => Page5()));
+                  }
+                },
+                child: const Text(
+                  'Login',
+                  style: TextStyle(fontSize: 18),
+                )),
+            // firebaseUIButton(
+            //   context, "Masuk",
+            //   // () async {
+            //   //   FirebaseAuth.instance
+            //   //       .signInWithEmailAndPassword(
+            //   //           email: _emailTextController.text,
+            //   //           password: _passwordTextController.text)
+            //   //       .then((value) {
+            //   //     print(_passwordTextController.text);
+            //   //     Navigator.pushReplacement(
+            //   //         context, MaterialPageRoute(builder: (context) => Page5()));
+            //   //     // print('masuk');
+            //   //   }).onError((error, stackTrace) {
+            //   //     print("Error ${error.toString()}");
+            //   //   });
+            //   // }
+            //   // () => _signUserIn(context),
+            //   () async {
+            //     User? user = await loginUsingEmailPassword(
+            //         email: _emailTextController.text,
+            //         password: _passwordTextController.text,
+            //         context: context);
+            //     if (user != null) {
+            //       Navigator.of(context).pushReplacement(
+            //           MaterialPageRoute(builder: (context) => Page5()));
+            //     }
+            //   },
+            // ),
             SizedBox(
               height: 10,
             ),

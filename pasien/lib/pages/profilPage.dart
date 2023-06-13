@@ -1,5 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/theme.dart';
 
 class ProfilPage extends StatelessWidget {
   @override
@@ -81,7 +82,9 @@ class ProfilPage extends StatelessWidget {
                         'Logout',
                         style: whiteSemiBoldTextStyle.copyWith(fontSize: 16),
                       ),
-                      onPressed: () {},
+                      onPressed: () async {
+                        await FirebaseAuth.instance.signOut();
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: redColor,
                         shape: RoundedRectangleBorder(
