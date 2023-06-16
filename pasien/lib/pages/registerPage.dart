@@ -43,7 +43,7 @@ class _RegisterPageState extends State<RegisterPage> {
       User? user = userCredential.user;
       if (user != null) {
         // await _uploadPhoto(user.uid);
-        // await user.updateDisplayName(_displayNameController.text);
+        await user.updateDisplayName(_displayNameController.text);
         // await user.updatePhotoURL(await getImage());
 
         Navigator.push(

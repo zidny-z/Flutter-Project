@@ -19,7 +19,7 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
       Reference ref = FirebaseStorage.instance.ref().child('images/$fileName');
       await ref.putFile(imageFile);
 
-      // Dapatkan URL unduhan gambar
+      // Dapatkan URL unduhan Foto BPJS Anda
       String downloadUrl = await ref.getDownloadURL();
       return downloadUrl;
     } catch (error) {
@@ -52,10 +52,10 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
     if (imageFile != null) {
       String? downloadUrl = await uploadImageToFirebase(imageFile!);
       if (downloadUrl != null) {
-        // Gambar berhasil diunggah, lakukan tindakan selanjutnya
+        // Foto BPJS Anda berhasil diunggah, lakukan tindakan selanjutnya
         print('Download URL: $downloadUrl');
       } else {
-        // Gagal mengunggah gambar
+        // Gagal mengunggah Foto BPJS Anda
       }
     }
   }
@@ -82,12 +82,12 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: _getImageFromCamera,
-            child: Text('Ambil Gambar'),
+            child: Text('Ambil Foto BPJS Anda'),
           ),
           SizedBox(height: 10),
           ElevatedButton(
             onPressed: _getImageFromGallery,
-            child: Text('Pilih Gambar'),
+            child: Text('Pilih Foto BPJS Anda'),
           ),
           SizedBox(height: 20),
           ElevatedButton(

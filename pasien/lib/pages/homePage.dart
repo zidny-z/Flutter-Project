@@ -1,5 +1,7 @@
 import 'package:antre/models/acaraM.dart';
 import 'package:antre/pages/antriCepatPage.dart';
+import 'package:antre/pages/berita.dart';
+import 'package:antre/pages/beritalagi.dart';
 import 'package:antre/pages/rsDekatPage.dart';
 import 'package:antre/widgets/acaraCard.dart';
 import 'package:antre/widgets/beritaCard.dart';
@@ -18,6 +20,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _user = FirebaseAuth.instance.currentUser?.email;
+  final _userName = FirebaseAuth.instance.currentUser?.displayName;
 
   final CollectionReference _news =
       FirebaseFirestore.instance.collection('news');
@@ -59,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Text(
-                        _user!,
+                        (_userName ?? _user!),
                         style: whiteRegularTextStyle.copyWith(
                           fontSize: 20,
                         ),
@@ -195,7 +198,33 @@ class _HomePageState extends State<HomePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  
+                  SizedBox(
+                    width: 12,
+                  ),
+                  BeritaCard(
+                    Berita(
+                        id: 1,
+                        image: 'assets/images/images1.png',
+                        date: '27 Maret 2023',
+                        title: 'Kewajiban Vaksin Untuk Mudik ',
+                        body: 'asdasd'),
+                  ),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => BeritaLagi()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: greenColor,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                      ),
+                      child: Text('Berita Lain'))
                 ],
               ),
               //   child: StreamBuilder(

@@ -41,7 +41,7 @@ class BeritaCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    berita.tanggal,
+                    berita.date,
                     style: blackRegulerTextStyle.copyWith(
                       fontSize: 7,
                     ),
@@ -50,7 +50,7 @@ class BeritaCard extends StatelessWidget {
                     height: 1,
                   ),
                   Text(
-                    berita.judul,
+                    berita.title,
                     style: blackSemiBoldTextStyle.copyWith(
                       fontSize: 10,
                     ),

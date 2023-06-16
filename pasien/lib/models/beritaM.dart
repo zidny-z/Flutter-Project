@@ -1,14 +1,14 @@
 class Berita {
   int id;
-  String tanggal;
-  String judul;
+  String date;
+  String title;
   String body;
   String image;
 
   Berita(
       {required this.id,
       required this.image,
-      required this.tanggal,
+      required this.date,
       required this.body,
-      required this.judul});
+      required this.title});
 }
