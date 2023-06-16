@@ -1,16 +1,16 @@
-import 'package:antri/pages/hasilAntriPage.dart';
+import 'package:antre/pages/hasilantriPage.dart';
 import 'package:flutter/material.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/theme.dart';
 
-class AntriCepat extends StatelessWidget {
-  const AntriCepat({Key? key}) : super(key: key);
+class antreCepat extends StatelessWidget {
+  const antreCepat({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Program Antri Cepat'),
+        title: const Text('Program antre Cepat'),
         backgroundColor: Colors.green,
         leading: BackButton(
           color: Colors.white,
@@ -23,7 +23,7 @@ class AntriCepat extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'Antri Cepat',
+              'antre Cepat',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w800),
             ),
             SizedBox(
@@ -92,7 +92,7 @@ class AntriCepat extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HasilAntriPage(),
+                      builder: (context) => HasilantrePage(),
                     ),
                   );
                 },

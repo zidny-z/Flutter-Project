@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:antri/models/beritaM.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/models/beritaM.dart';
+import 'package:antre/theme.dart';
 
 class BeritaCard extends StatelessWidget {
   final Berita berita;

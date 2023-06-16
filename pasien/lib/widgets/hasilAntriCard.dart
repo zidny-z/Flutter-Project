@@ -1,8 +1,8 @@
-import 'package:antri/pages/antrianPage.dart';
+import 'package:antre/pages/antrianPage.dart';
 import 'package:flutter/material.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/theme.dart';
 
-class HasilAntriCard extends StatelessWidget {
+class HasilantreCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -47,7 +47,7 @@ class HasilAntriCard extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AntrianPage(),
+                          builder: (context) => antreanPage(),
                         ),
                       );
                     },

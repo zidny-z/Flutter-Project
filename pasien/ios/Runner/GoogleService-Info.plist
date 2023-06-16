@@ -2,18 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>1023771943067-g4arht1ndhp2567le55ji48utte8m8l1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1023771943067-g4arht1ndhp2567le55ji48utte8m8l1</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAYQI1zXLi4XYE7erUFIwg7Kms-GUoOK10</string>
+	<string>AIzaSyBs8Zup5NfcHlyhwJTnjrwZ0wGEIT019ss</string>
 	<key>GCM_SENDER_ID</key>
-	<string>822692220708</string>
+	<string>1023771943067</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.antri</string>
+	<string>com.example.antre</string>
 	<key>PROJECT_ID</key>
-	<string>super-admin-web-contrib</string>
+	<string>antre-2470a</string>
 	<key>STORAGE_BUCKET</key>
-	<string>super-admin-web-contrib.appspot.com</string>
+	<string>antre-2470a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:822692220708:ios:cc2364ffc0512e50f26db1</string>
+	<string>1:1023771943067:ios:a8fb593337c231554fe63e</string>
 </dict>
 </plist>

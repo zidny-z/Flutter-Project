@@ -23,9 +23,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -44,39 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDMMSehH8_m35ZyrNZymBvkAG9xC702YJE',
-    appId: '1:868331640642:web:d9ecc4e9bddb3784f39adb',
-    messagingSenderId: '868331640642',
-    projectId: 'super-admin-antriajaa-web',
-    authDomain: 'super-admin-antriajaa-web.firebaseapp.com',
-    storageBucket: 'super-admin-antriajaa-web.appspot.com',
+    apiKey: 'AIzaSyAG1HYMnA6FJCuTgEHdaX2Yq4yNuoNJkdo',
+    appId: '1:1023771943067:web:38ff29cff85834124fe63e',
+    messagingSenderId: '1023771943067',
+    projectId: 'antre-2470a',
+    authDomain: 'antre-2470a.firebaseapp.com',
+    storageBucket: 'antre-2470a.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCk3SApXRwcxDA-HPA4N9PgwoGFmapAp5s',
-    appId: '1:868331640642:android:13ea11217f7ba64bf39adb',
-    messagingSenderId: '868331640642',
-    projectId: 'super-admin-antriajaa-web',
-    storageBucket: 'super-admin-antriajaa-web.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBHUVuPS7ik1yYfyi6wYRGEuDJlUO_PRdY',
-    appId: '1:868331640642:ios:ab1bbf7580901f52f39adb',
-    messagingSenderId: '868331640642',
-    projectId: 'super-admin-antriajaa-web',
-    storageBucket: 'super-admin-antriajaa-web.appspot.com',
-    iosClientId: '868331640642-pvovq068rh0bgegn82bvakp8fapjfnp5.apps.googleusercontent.com',
-    iosBundleId: 'com.example.antri',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBHUVuPS7ik1yYfyi6wYRGEuDJlUO_PRdY',
-    appId: '1:868331640642:ios:153b43d7fa8d52a7f39adb',
-    messagingSenderId: '868331640642',
-    projectId: 'super-admin-antriajaa-web',
-    storageBucket: 'super-admin-antriajaa-web.appspot.com',
-    iosClientId: '868331640642-a5lp6v9j7gv2eke2q6g79tuu8duiuo2k.apps.googleusercontent.com',
-    iosBundleId: 'com.example.antri.RunnerTests',
+    apiKey: 'AIzaSyB0tNQZxHUN-Bfam_x9IjHd2Tz_p8YJjuQ',
+    appId: '1:1023771943067:android:76e06996260a08ce4fe63e',
+    messagingSenderId: '1023771943067',
+    projectId: 'antre-2470a',
+    storageBucket: 'antre-2470a.appspot.com',
   );
 }

@@ -1,8 +1,8 @@
-import 'package:antri/widgets/hasilAntriCard.dart';
+import 'package:antre/widgets/hasilantriCard.dart';
 import 'package:flutter/material.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/theme.dart';
 
-class HasilAntriPage extends StatelessWidget {
+class HasilantrePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,15 +22,15 @@ class HasilAntriPage extends StatelessWidget {
                 SizedBox(
                   height: 15,
                 ),
-                HasilAntriCard(),
+                HasilantreCard(),
                 SizedBox(
                   height: 15,
                 ),
-                HasilAntriCard(),
+                HasilantreCard(),
                 SizedBox(
                   height: 15,
                 ),
-                HasilAntriCard(),
+                HasilantreCard(),
               ],
             ),
           ),

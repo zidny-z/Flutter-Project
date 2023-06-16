@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/theme.dart';
 
 class DokterPoliCard extends StatelessWidget {
   @override

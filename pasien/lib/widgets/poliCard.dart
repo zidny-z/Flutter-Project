@@ -1,7 +1,7 @@
-import 'package:antri/pages/dokterPoliPage.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/pages/dokterPoliPage.dart';
+import 'package:antre/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:antri/models/poliM.dart';
+import 'package:antre/models/poliM.dart';
 
 class PoliCard extends StatelessWidget {
   final Poli poli;
