@@ -29,6 +29,12 @@ export const userInputs = [
     type: 'text',
     placeholder: '22',
   },
+  {
+    id: 'dateJoined',
+    label: 'Date Joined',
+    type: 'text',
+    placeholder: '2021-01-01',
+  },
 ];
 
 export const userInputsNews = [
@@ -39,7 +45,7 @@ export const userInputsNews = [
     placeholder: 'Input title',
   },
   {
-    id: 'Category',
+    id: 'category',
     label: 'Category',
     type: 'text',
     placeholder: 'Input Category',
@@ -50,4 +56,16 @@ export const userInputsNews = [
     type: 'text',
     placeholder: 'Input Description',
   },
+  // {
+  //   id: 'email',
+  //   label: 'Email',
+  //   type: 'mail',
+  //   placeholder: 'john_doe@gmail.com',
+  // },
+  // {
+  //   id: 'password',
+  //   label: 'Password',
+  //   type: 'password',
+  //   placeholder: 'Password',
+  // },
 ];

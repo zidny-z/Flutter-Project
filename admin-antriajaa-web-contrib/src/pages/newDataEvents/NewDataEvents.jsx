@@ -1,14 +1,13 @@
-import './NewDataDoctor.scss';
-import Sidebar from '../../components/sidebar/Sidebar';
+import './NewDataEvents.scss';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { addDoc, serverTimestamp, collection } from 'firebase/firestore';
 import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
 import { useState, useEffect } from 'react';
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { auth, db, storage } from '../../firebase';
+import Sidebar from '../../components/sidebar/Sidebar';
+import { db, storage } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 
-const NewDataDoctor = ({ inputs, title }) => {
+const NewDataEvents = ({ inputs, title }) => {
   const [file, setFile] = useState('');
   const [data, setData] = useState({});
   const [per, setPerc] = useState(null);
@@ -62,16 +61,15 @@ const NewDataDoctor = ({ inputs, title }) => {
   };
 
   const handleAdd = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     try {
-      const res = await createUserWithEmailAndPassword(auth, data.email, data.password);
-      await setDoc(doc(db, 'users', res.user.uid), {
+      const res = await addDoc(collection(db, 'events'), {
         ...data,
         timeStamp: serverTimestamp(),
       });
       navigate(-1);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -112,4 +110,4 @@ const NewDataDoctor = ({ inputs, title }) => {
   );
 };
 
-export default NewDataDoctor;
+export default NewDataEvents;
