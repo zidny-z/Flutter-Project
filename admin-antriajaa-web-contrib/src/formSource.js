@@ -37,27 +37,6 @@ export const userInputs = [
   },
 ];
 
-export const userInputsEvents = [
-  {
-    id: 'title',
-    label: 'Title',
-    type: 'text',
-    placeholder: 'Input title',
-  },
-  {
-    id: 'category',
-    label: 'Category',
-    type: 'text',
-    placeholder: 'Input Category',
-  },
-  {
-    id: 'description',
-    label: 'Description',
-    type: 'text',
-    placeholder: 'Input Description',
-  },
-];
-
 export const userInputsHospital = [
   {
     id: 'name',
@@ -82,5 +61,47 @@ export const userInputsHospital = [
     label: 'Longitude',
     type: 'text',
     placeholder: 'Input Longitude',
+  },
+];
+
+export const userInputsEvents = [
+  {
+    id: 'title',
+    label: 'Title',
+    type: 'text',
+    placeholder: 'Input title',
+  },
+  {
+    id: 'category',
+    label: 'Category',
+    type: 'text',
+    placeholder: 'Input Category',
+  },
+  {
+    id: 'description',
+    label: 'Description',
+    type: 'text',
+    placeholder: 'Input Description',
+  },
+];
+
+export const userInputsNews = [
+  {
+    id: 'title',
+    label: 'Title',
+    type: 'text',
+    placeholder: 'Input title',
+  },
+  {
+    id: 'category',
+    label: 'Category',
+    type: 'text',
+    placeholder: 'Input Category',
+  },
+  {
+    id: 'description',
+    label: 'Description',
+    type: 'text',
+    placeholder: 'Input Description',
   },
 ];

@@ -4,14 +4,16 @@ import ListDoctor from './pages/ListDoctor/ListDoctor';
 import NewDataDoctor from './pages/newDataDoctor/NewDataDoctor';
 import NewDataEvents from './pages/newDataEvents/NewDataEvents';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { userInputs, userInputsEvents, userInputsHospital } from './formSource';
+import { userInputs, userInputsEvents, userInputsHospital, userInputsNews } from './formSource';
 import './style/dark.scss';
 import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/AuthContext';
 import ListEvents from './pages/ListEvents/ListEvents';
 import ListHospital from './pages/ListHospital/ListHospital';
+import ListNews from './pages/ListNews/ListNews';
 import NewDataHospital from './pages/newDataHospital/NewDataHospital';
+import NewDataNews from './pages/newDataNews/NewDataNews';
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -86,6 +88,24 @@ function App() {
                 element={
                   <RequireAuth>
                     <NewDataEvents inputs={userInputsEvents} title="Add New Events" />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+            <Route path="newsPage">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <ListNews />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="newDataNews"
+                element={
+                  <RequireAuth>
+                    <NewDataNews inputs={userInputsNews} title="Add New News" />
                   </RequireAuth>
                 }
               />

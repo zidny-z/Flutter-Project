@@ -1,10 +1,10 @@
 import './NewDataNews.scss';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { doc, addDoc, setDoc, serverTimestamp, collection } from 'firebase/firestore';
+import { addDoc, serverTimestamp, collection } from 'firebase/firestore';
 import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
 import { useState, useEffect } from 'react';
 import Sidebar from '../../components/sidebar/Sidebar';
-import { auth, db, storage } from '../../firebase';
+import { db, storage } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 
 const NewDataNews = ({ inputs, title }) => {

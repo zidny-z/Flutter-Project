@@ -30,33 +30,6 @@ export const userColumns = [
   },
 ];
 
-export const userEventsColumns = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  {
-    field: 'title',
-    headerName: 'Title',
-    width: 230,
-    renderCell: (params) => {
-      return (
-        <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.title}
-        </div>
-      );
-    },
-  },
-  {
-    field: 'category',
-    headerName: 'Category',
-    width: 230,
-  },
-  {
-    field: 'description',
-    headerName: 'Description',
-    width: 230,
-  },
-];
-
 export const userHospitalColumns = [
   { field: 'id', headerName: 'ID', width: 70 },
   {
@@ -88,3 +61,58 @@ export const userHospitalColumns = [
     width: 230,
   },
 ];
+
+export const userEventsColumns = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  {
+    field: 'title',
+    headerName: 'Title',
+    width: 230,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {params.row.title}
+        </div>
+      );
+    },
+  },
+  {
+    field: 'category',
+    headerName: 'Category',
+    width: 230,
+  },
+  {
+    field: 'description',
+    headerName: 'Description',
+    width: 230,
+  },
+];
+
+export const userNewsColumns = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  {
+    field: 'title',
+    headerName: 'Title',
+    width: 230,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {params.row.title}
+        </div>
+      );
+    },
+  },
+  {
+    field: 'category',
+    headerName: 'Category',
+    width: 230,
+  },
+  {
+    field: 'description',
+    headerName: 'Description',
+    width: 230,
+  },
+];
+
