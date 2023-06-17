@@ -34,6 +34,12 @@ const Sidebar = () => {
               <span>Hospital List</span>
             </li>
           </Link>
+          <Link to="/polyclinicPage" style={{ textDecoration: 'none' }}>
+            <li>
+              <CreditCardIcon className="icon" />
+              <span>Polyclinic Page</span>
+            </li>
+          </Link>
           <Link to="/eventsPage" style={{ textDecoration: 'none' }}>
             <li>
               <StoreIcon className="icon" />
@@ -46,6 +52,7 @@ const Sidebar = () => {
               <span>News Page</span>
             </li>
           </Link>
+          
 
           
           <p className="title">USEFUL</p>

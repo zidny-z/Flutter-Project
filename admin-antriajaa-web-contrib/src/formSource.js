@@ -64,6 +64,33 @@ export const userInputsHospital = [
   },
 ];
 
+export const userInputsPolyclinic = [
+  {
+    id: 'name',
+    label: 'Name Of Polyclinic',
+    type: 'text',
+    placeholder: 'Input Name Of Polyclinic',
+  },
+  {
+    id: 'type',
+    label: 'Type Of Polyclinic',
+    type: 'text',
+    placeholder: 'Input Type Of Polyclinic',
+  },
+  {
+    id: 'openTime',
+    label: 'Open Time',
+    type: 'text',
+    placeholder: 'Input Open Time',
+  },
+  {
+    id: 'closedTime',
+    label: 'Closed Time',
+    type: 'text',
+    placeholder: 'Input Closed Time',
+  },
+];
+
 export const userInputsEvents = [
   {
     id: 'title',

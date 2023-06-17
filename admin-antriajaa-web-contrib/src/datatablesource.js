@@ -61,6 +61,37 @@ export const userHospitalColumns = [
     width: 230,
   },
 ];
+export const userPolyclinicColumns = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  {
+    field: 'name',
+    headerName: 'Name Of Polyclinic',
+    width: 230,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {params.row.name}
+        </div>
+      );
+    },
+  },
+  {
+    field: 'type',
+    headerName: 'Type Of Polyclinic',
+    width: 230,
+  },
+  {
+    field: 'openTime',
+    headerName: 'Open Time',
+    width: 230,
+  },
+  {
+    field: 'closedTime',
+    headerName: 'Closed Time',
+    width: 230,
+  },
+];
 
 export const userEventsColumns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -115,4 +146,3 @@ export const userNewsColumns = [
     width: 230,
   },
 ];
-
