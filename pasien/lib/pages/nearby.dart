@@ -193,3 +193,96 @@ class Location {
     required this.longitude,
   });
 }
+
+// import 'dart:convert';
+
+// import 'package:flutter/material.dart';
+// import 'package:http/http.dart' as http;
+// import 'package:geolocator/geolocator.dart';
+
+// class LocationPage extends StatefulWidget {
+//   @override
+//   _LocationPageState createState() => _LocationPageState();
+// }
+
+// class _LocationPageState extends State<LocationPage> {
+//   Position? _currentPosition;
+//   String? _currentAddress;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _getCurrentLocation();
+//   }
+
+//   Future<void> _getCurrentLocation() async {
+//     final position = await Geolocator.getCurrentPosition(
+//         desiredAccuracy: LocationAccuracy.high);
+//     setState(() {
+//       _currentPosition = position;
+//     });
+    
+//     final url =
+//         'https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.latitude},${position.longitude}&key=AIzaSyB0CAHUE2RIkn2jXXkTj3kphdKFNzGZwHY';
+//     final response = await http.get(Uri.parse(url));
+
+//     if (response.statusCode == 200) {
+//       final decodedData = json.decode(response.body);
+//       final results = decodedData['results'] as List<dynamic>;
+//       final address = results[0]['formatted_address'] as String;
+//       setState(() {
+//         _currentAddress = address;
+//       });
+//     } else {
+//       setState(() {
+//         _currentAddress = 'Error retrieving address';
+//       });
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Lokasi Pengguna'),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: <Widget>[
+//             if (_currentPosition != null && _currentAddress != null)
+//               Text(
+//                 'Lokasi saat ini:',
+//                 style: TextStyle(fontSize: 20),
+//               ),
+//             SizedBox(height: 10),
+//             if (_currentPosition != null && _currentAddress != null)
+//               Text(
+//                 'Latitude: ${_currentPosition!.latitude}',
+//                 style: TextStyle(fontSize: 16),
+//               ),
+//             SizedBox(height: 10),
+//             if (_currentPosition != null && _currentAddress != null)
+//               Text(
+//                 'Longitude: ${_currentPosition!.longitude}',
+//                 style: TextStyle(fontSize: 16),
+//               ),
+//             SizedBox(height: 10),
+//             if (_currentAddress != null)
+//               Text(
+//                 'Alamat: $_currentAddress',
+//                 style: TextStyle(fontSize: 16),
+//               ),
+//             SizedBox(height: 20),
+//             ElevatedButton(
+//               onPressed: () {
+//                 _getCurrentLocation();
+//               },
+//               child: Text('Dapatkan Lokasi'),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
