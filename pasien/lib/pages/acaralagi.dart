@@ -77,6 +77,7 @@ class NewsDetailPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Detail Acara'),
+          backgroundColor: Colors.green,
         ),
         body: SafeArea(
           bottom: false,

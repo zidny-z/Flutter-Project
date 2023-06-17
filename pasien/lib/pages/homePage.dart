@@ -1,6 +1,7 @@
 import 'package:antre/pages/acaralagi.dart';
 import 'package:antre/pages/antriCepatPage.dart';
 import 'package:antre/pages/beritalagi.dart';
+import 'package:antre/pages/nearby.dart';
 import 'package:antre/pages/rsDekatPage.dart';
 import 'package:antre/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -88,7 +89,10 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => RsDekat()));
+                                      builder: (context) =>
+                                          NearbyLocationsScreen()
+                                      // builder: (context) => RsDekat()
+                                      ));
                             },
                             child: Container(
                               height: 100,
@@ -137,6 +141,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
+                                      // builder: (context) => NearbyLocationsScreen()
                                       builder: (context) => antreCepat()));
                             },
                             child: Container(
@@ -261,7 +266,7 @@ class _HomePageState extends State<HomePage> {
                                       padding: const EdgeInsets.only(left: 12),
                                       child: Image.network(
                                         documentData['image'],
-                                        height: 75,
+                                        // height: 75,
                                         width: 150,
                                         fit: BoxFit.cover,
                                       ),
@@ -409,7 +414,7 @@ class _HomePageState extends State<HomePage> {
                                       padding: const EdgeInsets.only(left: 12),
                                       child: Image.network(
                                         documentData['img'],
-                                        height: 75,
+                                        // height: 75,
                                         width: 150,
                                         fit: BoxFit.cover,
                                       ),

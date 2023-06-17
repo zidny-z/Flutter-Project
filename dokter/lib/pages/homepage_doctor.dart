@@ -4,7 +4,7 @@ import 'package:pbmdoctor/models/berita.dart';
 import 'package:pbmdoctor/models/navbar.dart';
 import 'package:pbmdoctor/pages/absen_doctor.dart';
 import 'package:pbmdoctor/pages/nearby_location_screen.dart';
-import 'package:pbmdoctor/pages/nearby_page.dart';
+// import 'package:pbmdoctor/pages/nearby_page.dart';
 // import 'package:pbmdoctor/pages/absen_doctor.dart';
 // import 'package:pbmdoctor/pages/detail_berita.dart';
 import 'package:pbmdoctor/pages/page_list_pasien.dart';

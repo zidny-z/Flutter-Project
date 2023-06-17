@@ -123,6 +123,7 @@ class NewsDetailPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Detail Berita'),
+          backgroundColor: Colors.green,
         ),
         body: SafeArea(
           bottom: false,
