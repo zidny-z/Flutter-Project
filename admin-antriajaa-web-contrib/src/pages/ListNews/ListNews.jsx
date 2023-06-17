@@ -1,6 +1,6 @@
 import './ListNews.scss';
 import Sidebar from '../../components/sidebar/Sidebar';
-import DataNews from '../../components/dataNewsList/DataNews';
+import DataNews from '../../components/dataNews/DataNews';
 
 const ListNews = () => {
   return (

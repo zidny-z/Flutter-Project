@@ -1,16 +1,16 @@
-import './ListEvents.scss';
+import './ListQueue.scss';
 import Sidebar from '../../components/sidebar/Sidebar';
-import DataEvents from '../../components/dataEventsList/DataEvents';
+import DataQueue from '../../components/dataQueue/DataQueue';
 
-const ListEvents = () => {
+const ListPolyclinic = () => {
   return (
     <div className="list">
       <Sidebar />
       <div className="listContainer">
-        <DataEvents />
+        <DataQueue />
       </div>
     </div>
   );
 };
 
-export default ListEvents;
+export default ListPolyclinic;

@@ -1,4 +1,4 @@
-import './NewDataNews.scss';
+import './NewDataHospital.scss';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { addDoc, serverTimestamp, collection } from 'firebase/firestore';
 import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
@@ -7,7 +7,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import { db, storage } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 
-const NewDataNews = ({ inputs, title }) => {
+const NewDataHospital = ({ inputs, title }) => {
   const [file, setFile] = useState('');
   const [data, setData] = useState({});
   const [per, setPerc] = useState(null);
@@ -63,7 +63,7 @@ const NewDataNews = ({ inputs, title }) => {
   const handleAdd = async (e) => {
     e.preventDefault(); 
     try {
-      const res = await addDoc(collection(db, 'news'), {
+      const res = await addDoc(collection(db, 'hospital'), {
         ...data,
         timeStamp: serverTimestamp(),
       });
@@ -110,4 +110,4 @@ const NewDataNews = ({ inputs, title }) => {
   );
 };
 
-export default NewDataNews;
+export default NewDataHospital;

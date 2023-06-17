@@ -37,6 +37,81 @@ export const userInputs = [
   },
 ];
 
+export const userInputsHospital = [
+  {
+    id: 'name',
+    label: 'Name Of Hospital',
+    type: 'text',
+    placeholder: 'Input Name Of Hospital',
+  },
+  {
+    id: 'address',
+    label: 'Address',
+    type: 'text',
+    placeholder: 'Input Address',
+  },
+  {
+    id: 'latitude',
+    label: 'Latitude',
+    type: 'text',
+    placeholder: 'Input Latitude',
+  },
+  {
+    id: 'longitude',
+    label: 'Longitude',
+    type: 'text',
+    placeholder: 'Input Longitude',
+  },
+];
+
+export const userInputsPolyclinic = [
+  {
+    id: 'name',
+    label: 'Name Of Polyclinic',
+    type: 'text',
+    placeholder: 'Input Name Of Polyclinic',
+  },
+  {
+    id: 'type',
+    label: 'Type Of Polyclinic',
+    type: 'text',
+    placeholder: 'Input Type Of Polyclinic',
+  },
+  {
+    id: 'openTime',
+    label: 'Open Time',
+    type: 'text',
+    placeholder: 'Input Open Time',
+  },
+  {
+    id: 'closedTime',
+    label: 'Closed Time',
+    type: 'text',
+    placeholder: 'Input Closed Time',
+  },
+];
+
+export const userInputsEvents = [
+  {
+    id: 'title',
+    label: 'Title',
+    type: 'text',
+    placeholder: 'Input title',
+  },
+  {
+    id: 'category',
+    label: 'Category',
+    type: 'text',
+    placeholder: 'Input Category',
+  },
+  {
+    id: 'description',
+    label: 'Description',
+    type: 'text',
+    placeholder: 'Input Description',
+  },
+];
+
 export const userInputsNews = [
   {
     id: 'title',
@@ -56,16 +131,4 @@ export const userInputsNews = [
     type: 'text',
     placeholder: 'Input Description',
   },
-  // {
-  //   id: 'email',
-  //   label: 'Email',
-  //   type: 'mail',
-  //   placeholder: 'john_doe@gmail.com',
-  // },
-  // {
-  //   id: 'password',
-  //   label: 'Password',
-  //   type: 'password',
-  //   placeholder: 'Password',
-  // },
 ];
