@@ -1,4 +1,5 @@
 import 'package:antre/pages/authPage.dart';
+import 'package:antre/pages/detail_acara.dart';
 import 'package:antre/pages/detail_berita.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       home: AuthPage(),
       routes: {
         'detailBeritaOne': (context) => DetailBeritaOne(),
+        'detailAcaraOne': (context) => DetailAcaraOne(),
       },
     );
   }

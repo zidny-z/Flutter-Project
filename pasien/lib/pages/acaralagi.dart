@@ -2,100 +2,54 @@ import 'package:antre/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class BeritaLagi extends StatefulWidget {
-  const BeritaLagi({Key? key}) : super(key: key);
+class AcaraLagi extends StatefulWidget {
+  const AcaraLagi({Key? key}) : super(key: key);
 
   @override
-  State<BeritaLagi> createState() => _BeritaLagiState();
+  State<AcaraLagi> createState() => _AcaraLagiState();
 }
 
-class _BeritaLagiState extends State<BeritaLagi> {
-  // final CollectionReference _news =
-  //     FirebaseFirestore.instance.collection('news');
+class _AcaraLagiState extends State<AcaraLagi> {
+  // final CollectionReference _event =
+  //     FirebaseFirestore.instance.collection('event');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Berita Lain'),
+        title: const Text('Acara Lain'),
         backgroundColor: greenColor,
         leading: BackButton(
           color: Colors.white,
         ),
       ),
-      // body: StreamBuilder(
-      //   stream: _news.snapshots(),
-      //   builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-      //     if (streamSnapshot.hasData) {
-      //       return ListView.builder(
-      //         itemCount: streamSnapshot.data!.docs.length,
-      //         itemBuilder: (context, index) {
-      //           final DocumentSnapshot documentSnapshot =
-      //               streamSnapshot.data!.docs[index];
-      //           return Card(
-      //             margin: const EdgeInsets.all(10),
-      //             child: ListTile(
-      //               leading: documentSnapshot['image'] != null
-      //                   ? Image.network(
-      //                       documentSnapshot['image'],
-      //                       height: 120,
-      //                       fit: BoxFit.cover,
-      //                     )
-      //                   : SizedBox.shrink(),
-      //               title: Text(documentSnapshot['title']),
-      //               subtitle: Text(documentSnapshot['date']),
-      //               trailing: SizedBox(
-      //                 width: 50,
-      //                 child: Row(
-      //                   children: [
-      //                     IconButton(
-      //                         icon: const Icon(Icons.remove_red_eye_rounded),
-      //                         onPressed: () {
-      //                           Navigator.pushNamed(context, 'detailBeritaOne',
-      //                               arguments: _news);
-      //                         }),
-      //                   ],
-      //                 ),
-      //               ),
-      //             ),
-      //           );
-      //         },
-      //       );
-      //     }
-
-      //     return const Center(
-      //       child: CircularProgressIndicator(),
-      //     );
-      //   },
-      // ),
-
       body: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance.collection('news').snapshots(),
+        stream: FirebaseFirestore.instance.collection('event').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            final List<DocumentSnapshot> newsList = snapshot.data!.docs;
+            final List<DocumentSnapshot> eventList = snapshot.data!.docs;
             return ListView.builder(
               itemExtent: 100,
               shrinkWrap: true,
-              itemCount: newsList.length,
+              itemCount: eventList.length,
               itemBuilder: (context, index) {
-                final news = newsList[index];
+                final event = eventList[index];
                 return ListTile(
-                  leading: news['image'] != null
+                  leading: event['img'] != null
                       ? Image.network(
-                          news['image'],
+                          event['img'],
                           height: 120,
                           fit: BoxFit.cover,
                         )
                       : SizedBox.shrink(),
-                  title: Text(news['title']),
-                  subtitle: Text(news['date']),
+                  title: Text(event['title']),
+                  subtitle: Text(event['date & place']),
                   shape: Border(bottom: BorderSide(color: greyEBcolor)),
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => NewsDetailPage(news: news),
+                        builder: (context) => NewsDetailPage(event: event),
                       ),
                     );
                   },
@@ -113,16 +67,16 @@ class _BeritaLagiState extends State<BeritaLagi> {
 }
 
 class NewsDetailPage extends StatelessWidget {
-  final DocumentSnapshot news;
+  final DocumentSnapshot event;
 
-  NewsDetailPage({required this.news});
+  NewsDetailPage({required this.event});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Detail Berita'),
+          title: Text('Detail Acara'),
         ),
         body: SafeArea(
           bottom: false,
@@ -141,7 +95,7 @@ class NewsDetailPage extends StatelessWidget {
                             width: 360,
                             height: 181,
                             child: Image.network(
-                              news['image'],
+                              event['img'],
                               // height: 120,
                               fit: BoxFit.cover,
                             ),
@@ -152,7 +106,7 @@ class NewsDetailPage extends StatelessWidget {
                         ),
                         SizedBox(height: 12),
                         Text(
-                          news['title'],
+                          event['title'],
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -160,7 +114,7 @@ class NewsDetailPage extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          news['date'],
+                          event['date & place'],
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.grey,
@@ -172,7 +126,7 @@ class NewsDetailPage extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(16.0),
                     child: Text(
-                      news['body'],
+                      event['description'],
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
