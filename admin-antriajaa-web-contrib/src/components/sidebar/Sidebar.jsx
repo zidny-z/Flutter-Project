@@ -35,6 +35,12 @@ const Sidebar = () => {
               <span>Hospital List</span>
             </li>
           </Link>
+          <Link to="/eventsPage" style={{ textDecoration: 'none' }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Events Page</span>
+            </li>
+          </Link>
 
           <li>
             <CreditCardIcon className="icon" />
@@ -42,14 +48,8 @@ const Sidebar = () => {
           </li>
           <li>
             <LocalShippingIcon className="icon" />
-            <span>Event Page</span>
+            <span>News Page</span>
           </li>
-          <Link to="/newsPage" style={{ textDecoration: 'none' }}>
-            <li>
-              <StoreIcon className="icon" />
-              <span>News Page</span>
-            </li>
-          </Link>
           <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />

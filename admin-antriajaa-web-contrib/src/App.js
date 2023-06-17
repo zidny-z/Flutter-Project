@@ -1,16 +1,15 @@
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import ListDoctor from './pages/ListDoctor/ListDoctor';
-import ListNews from './pages/ListNews/ListNews';
 import NewDataDoctor from './pages/newDataDoctor/NewDataDoctor';
-import NewDataNews from './pages/newDataNews/NewDataNews';
+import NewDataEvents from './pages/newDataEvents/NewDataEvents';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { userInputs, userInputsNews } from './formSource';
 import './style/dark.scss';
 import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/AuthContext';
-
+import ListEvents from './pages/ListEvents/ListEvents';
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -63,20 +62,20 @@ function App() {
                 }
               />
             </Route> */}
-            <Route path="newsPage">
+            <Route path="eventsPage">
               <Route
                 index
                 element={
                   <RequireAuth>
-                    <ListNews />
+                    <ListEvents />
                   </RequireAuth>
                 }
               />
               <Route
-                path="newDataNews"
+                path="newDataEvents"
                 element={
                   <RequireAuth>
-                    <NewDataNews inputs={userInputsNews} title="Add New News" />
+                    <NewDataEvents inputs={userInputsNews} title="Add New Events" />
                   </RequireAuth>
                 }
               />

@@ -24,7 +24,7 @@ export const userColumns = [
     width: 100,
   },
   {
-    field: 'Date Joined',
+    field: 'dateJoined',
     headerName: 'Date Joined',
     width: 230,
   },
@@ -40,7 +40,7 @@ export const userNewsColumns = [
       return (
         <div className="cellWithImg">
           <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.username}
+          {params.row.title}
         </div>
       );
     },
@@ -51,8 +51,8 @@ export const userNewsColumns = [
     width: 230,
   },
   {
-    field: 'Description',
+    field: 'description',
     headerName: 'Description',
-    width: 100,
+    width: 230,
   },
 ];
