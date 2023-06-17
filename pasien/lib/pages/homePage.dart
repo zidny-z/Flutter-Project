@@ -1,12 +1,13 @@
 import 'package:antre/pages/acaralagi.dart';
 import 'package:antre/pages/antriCepatPage.dart';
 import 'package:antre/pages/beritalagi.dart';
-import 'package:antre/pages/nearby.dart';
-import 'package:antre/pages/rsDekatPage.dart';
 import 'package:antre/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+
+import 'nearlagi.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -89,8 +90,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          NearbyLocationsScreen()
+                                      builder: (context) => RumahSakitPage()
                                       // builder: (context) => RsDekat()
                                       ));
                             },
@@ -141,8 +141,9 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      // builder: (context) => NearbyLocationsScreen()
-                                      builder: (context) => antreCepat()));
+                                      builder: (context) => RumahSakitPage()
+                                      // builder: (context) => antreCepat()
+                                      ));
                             },
                             child: Container(
                               height: 100,
