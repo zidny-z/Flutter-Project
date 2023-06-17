@@ -1,3 +1,4 @@
+import 'package:antre/pages/detailRumahSakit.dart';
 import 'package:antre/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -41,7 +42,8 @@ class _RumahSakitPageState extends State<RumahSakitPage> {
         backgroundColor: greenColor,
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance.collection('rs').snapshots(),
+        // stream: FirebaseFirestore.instance.collection('rs').snapshots(),
+        stream: FirebaseFirestore.instance.collection('RS').snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
@@ -82,8 +84,14 @@ class _RumahSakitPageState extends State<RumahSakitPage> {
               final latLng = LatLng(geopoint!.latitude, geopoint.longitude);
 
               return ListTile(
-                title: Text(nama ?? ''),
-                subtitle: Text(alamat ?? ''),
+                title: Text(
+                  nama ?? '',
+                  style: blackSemiBoldTextStyle.copyWith(fontSize: 18),
+                ),
+                subtitle: Text(
+                  alamat ?? '',
+                  style: darkenGreyTextStyle,
+                ),
                 trailing: IconButton(
                   icon: Icon(Icons.location_on),
                   onPressed: () {
@@ -96,6 +104,16 @@ class _RumahSakitPageState extends State<RumahSakitPage> {
                     );
                   },
                 ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailRumahSakitPage(
+                        rumahSakitId: document.id,
+                      ),
+                    ),
+                  );
+                },
               );
             },
           );
