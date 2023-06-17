@@ -13,6 +13,7 @@ import ListEvents from './pages/ListEvents/ListEvents';
 import ListHospital from './pages/ListHospital/ListHospital';
 import ListNews from './pages/ListNews/ListNews';
 import ListPolyclinic from './pages/ListPolyclinic/ListPolyclinic';
+import ListQueue from './pages/ListQueue/ListQueue';
 import NewDataPolyclinic from './pages/newDataPolyclinic/NewDataPolyclinic';
 import NewDataHospital from './pages/newDataHospital/NewDataHospital';
 import NewDataNews from './pages/newDataNews/NewDataNews';
@@ -129,6 +130,24 @@ function App() {
                   </RequireAuth>
                 }
               />
+            </Route>
+            <Route path="queueList">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <ListQueue />
+                  </RequireAuth>
+                }
+              />
+              {/* <Route
+                path="newDataNews"
+                element={
+                  <RequireAuth>
+                    <NewDataNews inputs={userInputsNews} title="Add New News" />
+                  </RequireAuth>
+                }
+              /> */}
             </Route>
           </Route>
         </Routes>

@@ -146,3 +146,35 @@ export const userNewsColumns = [
     width: 230,
   },
 ];
+
+export const userQueueColumns = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  {
+    field: 'nameHospital',
+    headerName: 'Name Of Hospital',
+    width: 230,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {params.row.nameHospital}
+        </div>
+      );
+    },
+  },
+  {
+    field: 'name',
+    headerName: 'Name Of Polyclinic',
+    width: 230,
+  },
+  {
+    field: 'date',
+    headerName: 'Date',
+    width: 230,
+  },
+  {
+    field: 'user',
+    headerName: 'Name Of Patient',
+    width: 230,
+  },
+];

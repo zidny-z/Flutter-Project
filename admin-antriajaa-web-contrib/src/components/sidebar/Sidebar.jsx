@@ -52,14 +52,14 @@ const Sidebar = () => {
               <span>News Page</span>
             </li>
           </Link>
-          
 
-          
           <p className="title">USEFUL</p>
-          <li>
-            <InsertChartIcon className="icon" />
-            <span>Verif New User</span>
-          </li>
+          <Link to="/queueList" style={{ textDecoration: 'none' }}>
+            <li>
+              <InsertChartIcon className="icon" />
+              <span>Queue</span>
+            </li>
+          </Link>
 
           <p className="title">USER</p>
           <li>
