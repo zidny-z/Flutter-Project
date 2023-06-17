@@ -1,16 +1,16 @@
-import './ListEvents.scss';
+import './ListHospital.scss';
 import Sidebar from '../../components/sidebar/Sidebar';
-import DataEvents from '../../components/dataEventsList/DataEvents';
+import DataHospital from '../../components/dataHospital/DataHospital';
 
-const ListEvents = () => {
+const ListHospital = () => {
   return (
     <div className="list">
       <Sidebar />
       <div className="listContainer">
-        <DataEvents />
+        <DataHospital />
       </div>
     </div>
   );
 };
 
-export default ListEvents;
+export default ListHospital;

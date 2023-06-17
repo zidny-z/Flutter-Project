@@ -37,7 +37,7 @@ export const userInputs = [
   },
 ];
 
-export const userInputsNews = [
+export const userInputsEvents = [
   {
     id: 'title',
     label: 'Title',
@@ -56,16 +56,31 @@ export const userInputsNews = [
     type: 'text',
     placeholder: 'Input Description',
   },
-  // {
-  //   id: 'email',
-  //   label: 'Email',
-  //   type: 'mail',
-  //   placeholder: 'john_doe@gmail.com',
-  // },
-  // {
-  //   id: 'password',
-  //   label: 'Password',
-  //   type: 'password',
-  //   placeholder: 'Password',
-  // },
+];
+
+export const userInputsHospital = [
+  {
+    id: 'name',
+    label: 'Name Of Hospital',
+    type: 'text',
+    placeholder: 'Input Name Of Hospital',
+  },
+  {
+    id: 'address',
+    label: 'Address',
+    type: 'text',
+    placeholder: 'Input Address',
+  },
+  {
+    id: 'latitude',
+    label: 'Latitude',
+    type: 'text',
+    placeholder: 'Input Latitude',
+  },
+  {
+    id: 'longitude',
+    label: 'Longitude',
+    type: 'text',
+    placeholder: 'Input Longitude',
+  },
 ];

@@ -4,12 +4,14 @@ import ListDoctor from './pages/ListDoctor/ListDoctor';
 import NewDataDoctor from './pages/newDataDoctor/NewDataDoctor';
 import NewDataEvents from './pages/newDataEvents/NewDataEvents';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { userInputs, userInputsNews } from './formSource';
+import { userInputs, userInputsEvents, userInputsHospital } from './formSource';
 import './style/dark.scss';
 import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/AuthContext';
 import ListEvents from './pages/ListEvents/ListEvents';
+import ListHospital from './pages/ListHospital/ListHospital';
+import NewDataHospital from './pages/newDataHospital/NewDataHospital';
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -52,16 +54,24 @@ function App() {
                 }
               />
             </Route>
-            {/* <Route path="hospitalPage">
+            <Route path="hospitalPage">
               <Route
                 index
                 element={
                   <RequireAuth>
-                    <List />
+                    <ListHospital />
                   </RequireAuth>
                 }
               />
-            </Route> */}
+              <Route
+                path="newDataHospital"
+                element={
+                  <RequireAuth>
+                    <NewDataHospital inputs={userInputsHospital} title="Add New Hospital" />
+                  </RequireAuth>
+                }
+              />
+            </Route>
             <Route path="eventsPage">
               <Route
                 index
@@ -75,7 +85,7 @@ function App() {
                 path="newDataEvents"
                 element={
                   <RequireAuth>
-                    <NewDataEvents inputs={userInputsNews} title="Add New Events" />
+                    <NewDataEvents inputs={userInputsEvents} title="Add New Events" />
                   </RequireAuth>
                 }
               />

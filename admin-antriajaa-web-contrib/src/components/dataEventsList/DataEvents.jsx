@@ -1,6 +1,6 @@
 import './DataEvents.scss';
 import { DataGrid } from '@mui/x-data-grid';
-import { userNewsColumns } from '../../datatablesource';
+import { userEventsColumns } from '../../datatablesource';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
@@ -57,12 +57,12 @@ const DataEvents = ({ typoe }) => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New News
+        Add New Events
         <Link to="/eventsPage/newDataEvents" className="link">
-          Add New News
+          Add New Events
         </Link>
       </div>
-      <DataGrid className="datagrid" rows={data} columns={userNewsColumns.concat(actionColumn)} pageSize={9} rowsPerPageOptions={[9]} checkboxSelection />
+      <DataGrid className="datagrid" rows={data} columns={userEventsColumns.concat(actionColumn)} pageSize={9} rowsPerPageOptions={[9]} checkboxSelection />
     </div>
   );
 };

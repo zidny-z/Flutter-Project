@@ -30,7 +30,7 @@ export const userColumns = [
   },
 ];
 
-export const userNewsColumns = [
+export const userEventsColumns = [
   { field: 'id', headerName: 'ID', width: 70 },
   {
     field: 'title',
@@ -53,6 +53,38 @@ export const userNewsColumns = [
   {
     field: 'description',
     headerName: 'Description',
+    width: 230,
+  },
+];
+
+export const userHospitalColumns = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  {
+    field: 'name',
+    headerName: 'Name Of Hospital',
+    width: 230,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {params.row.name}
+        </div>
+      );
+    },
+  },
+  {
+    field: 'address',
+    headerName: 'Address',
+    width: 230,
+  },
+  {
+    field: 'latitude',
+    headerName: 'Latitude',
+    width: 230,
+  },
+  {
+    field: 'longitude',
+    headerName: 'Longitude',
     width: 230,
   },
 ];
