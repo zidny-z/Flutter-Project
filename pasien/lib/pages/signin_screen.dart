@@ -1,6 +1,5 @@
 import 'package:antre/pages/Navbar.dart';
 import 'package:antre/pages/registerPage.dart';
-import 'package:antre/pages/uploudGambar.dart';
 import 'package:antre/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

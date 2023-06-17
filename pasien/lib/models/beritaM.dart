@@ -1,5 +1,5 @@
 class Berita {
-  int id;
+  String id;
   String date;
   String title;
   String body;

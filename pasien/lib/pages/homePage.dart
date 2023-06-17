@@ -1,11 +1,8 @@
 import 'package:antre/models/acaraM.dart';
 import 'package:antre/pages/antriCepatPage.dart';
-import 'package:antre/pages/berita.dart';
 import 'package:antre/pages/beritalagi.dart';
 import 'package:antre/pages/rsDekatPage.dart';
 import 'package:antre/widgets/acaraCard.dart';
-import 'package:antre/widgets/beritaCard.dart';
-import 'package:antre/models/beritaM.dart';
 import 'package:antre/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -22,17 +19,18 @@ class _HomePageState extends State<HomePage> {
   final _user = FirebaseAuth.instance.currentUser?.email;
   final _userName = FirebaseAuth.instance.currentUser?.displayName;
 
-  final CollectionReference _news =
-      FirebaseFirestore.instance.collection('news');
-
-  Future<void> getData() async {
-    // Get docs from collection reference
-    QuerySnapshot querySnapshot = await _news.get();
-
-    // Get data from docs and convert map to List
-    final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
-
-    print(allData);
+  Stream<DocumentSnapshot<Map<String, dynamic>>> getLatestNews() {
+    return FirebaseFirestore.instance
+        .collection('news')
+        // .limit(1)
+        .snapshots()
+        .map((QuerySnapshot<Map<String, dynamic>> snapshot) {
+      if (snapshot.docs.isNotEmpty) {
+        return snapshot.docs.first;
+      } else {
+        throw Exception('No news found');
+      }
+    });
   }
 
   @override
@@ -197,20 +195,109 @@ class _HomePageState extends State<HomePage> {
               height: 135,
               child: ListView(
                 scrollDirection: Axis.horizontal,
+                // scrollDirection: Axis.vertical,
+                shrinkWrap: true,
                 children: [
                   SizedBox(
-                    width: 12,
+                    width: 24,
                   ),
-                  BeritaCard(
-                    Berita(
-                        id: 1,
-                        image: 'assets/images/images1.png',
-                        date: '27 Maret 2023',
-                        title: 'Kewajiban Vaksin Untuk Mudik ',
-                        body: 'asdasd'),
+                  StreamBuilder<DocumentSnapshot>(
+                    stream: getLatestNews(), // Ganti dengan stream Anda
+                    builder: (BuildContext context,
+                        AsyncSnapshot<DocumentSnapshot> snapshot) {
+                      if (snapshot.hasError) {
+                        return Text('Error: ${snapshot.error}');
+                      }
+
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return CircularProgressIndicator();
+                      }
+
+                      if (!snapshot.hasData) {
+                        return Text('No data available');
+                      }
+
+                      final documentData =
+                          snapshot.data!.data() as Map<String, dynamic>?;
+
+                      if (documentData == null) {
+                        return Text('No data available');
+                      }
+
+                      final yourFieldValue = documentData['title'] as String?;
+
+                      if (yourFieldValue == null) {
+                        return Text('Your field is empty');
+                      }
+                      return Container(
+                        child: GestureDetector(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 150,
+                              width: 250,
+                              color: greyEBcolor,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    height: 16,
+                                  ),
+                                  Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 12),
+                                      child: Image.network(
+                                        documentData['image'],
+                                        height: 75,
+                                        width: 150,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                      left: 11,
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          documentData['date'],
+                                          style: blackRegulerTextStyle.copyWith(
+                                            fontSize: 7,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 1,
+                                        ),
+                                        Text(
+                                          documentData['title'],
+                                          style:
+                                              blackSemiBoldTextStyle.copyWith(
+                                            fontSize: 10,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.pushNamed(context, 'detailBeritaOne',
+                                arguments: getLatestNews());
+                          },
+                        ),
+                      );
+                    },
                   ),
                   SizedBox(
-                    width: 12,
+                    width: 24,
                   ),
                   ElevatedButton(
                       onPressed: () {
@@ -220,68 +307,18 @@ class _HomePageState extends State<HomePage> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
+                        shadowColor: greenColor,
+                        minimumSize: Size(120, 75),
                         backgroundColor: greenColor,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                       ),
-                      child: Text('Berita Lain'))
+                      child: Text(
+                        'Berita\nLain',
+                        textAlign: TextAlign.center,
+                      ))
                 ],
               ),
-              //   child: StreamBuilder(
-              //     stream: _news.snapshots(),
-              //     builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-              //        if (streamSnapshot.hasData) {
-              // return ListView.builder(
-              //    itemBuilder: (context, index) {
-              //     final DocumentSnapshot documentSnapshot =
-              //         streamSnapshot.data!.docs[index];
-              //     return BeritaCard(Berita(id: documentSnapshot['id'], image: documentSnapshot['image'], tanggal: documentSnapshot['date'], body: documentSnapshot['body'], judul: documentSnapshot['title']));
-              // );
-
-              //     },
-              //   )
-              //   ),
-              // child: ListView(
-              //   scrollDirection: Axis.horizontal,
-              //   children: [
-              //     SizedBox(
-              //       width: 12,
-              //     ),
-              //     BeritaCard(
-              //       Berita(
-              //         id: 1,
-              //         image: 'assets/images/images1.png',
-              //         tanggal: '27 Maret 2023',
-              //         judul: 'Kewajiban Vaksin Untuk Mudik ',
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       width: 14,
-              //     ),
-              //     BeritaCard(
-              //       Berita(
-              //         id: 2,
-              //         image: 'assets/images/images2.png',
-              //         tanggal: '27 maret 2023',
-              //         judul: 'Masker itu Wajib',
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       width: 14,
-              //     ),
-              //     BeritaCard(
-              //       Berita(
-              //         id: 3,
-              //         image: 'assets/images/images3.png',
-              //         tanggal: '27 maret 2023',
-              //         judul: 'Masker itu Wajib',
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       width: 14,
-              //     ),
-              //   ],
-              // ),
             ),
 
             //awal fitur acara

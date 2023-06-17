@@ -1,11 +1,8 @@
-import 'dart:io';
 import 'package:antre/pages/signin_screen.dart';
 import 'package:antre/pages/uploudGambar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:antre/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class RegisterPage extends StatefulWidget {
   @override

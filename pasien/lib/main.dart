@@ -1,4 +1,5 @@
 import 'package:antre/pages/authPage.dart';
+import 'package:antre/pages/detail_berita.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -15,11 +16,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          // textTheme: GoogleFonts.interTextTheme(),
-          ),
+      theme: ThemeData(),
       debugShowCheckedModeBanner: false,
       home: AuthPage(),
+      routes: {
+        'detailBeritaOne': (context) => DetailBeritaOne(),
+      },
     );
   }
 }
