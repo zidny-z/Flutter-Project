@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:antri/models/acaraM.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/models/acaraM.dart';
+import 'package:antre/theme.dart';
 
 class AcaraCard extends StatelessWidget {
   final Acara acara;

@@ -1,8 +1,8 @@
-import 'package:antri/widgets/antrianCard.dart';
+import 'package:antre/widgets/antrianCard.dart';
 import 'package:flutter/material.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/theme.dart';
 
-class AntrianPage extends StatelessWidget {
+class antreanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +13,7 @@ class AntrianPage extends StatelessWidget {
               height: 68,
             ),
             Text(
-              'Antrian Pasien',
+              'antrean Pasien',
               style: blackSemiBoldTextStyle.copyWith(fontSize: 30),
               textAlign: TextAlign.center,
             ),
@@ -34,7 +34,7 @@ class AntrianPage extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  AntrianCard(),
+                  antreanCard(),
                 ],
               ),
             )

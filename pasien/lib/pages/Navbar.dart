@@ -1,11 +1,17 @@
-import 'package:antri/pages/antrianPage.dart';
-import 'package:antri/pages/homePage.dart';
-import 'package:antri/pages/profilPage.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/pages/antrianPage.dart';
+import 'package:antre/pages/homepage.dart';
+import 'package:antre/pages/profilPage.dart';
+import 'package:antre/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({Key? key}) : super(key: key);
+
+  Future<FirebaseApp> _initializeFirebase() async {
+    FirebaseApp firebaseApp = await Firebase.initializeApp();
+    return firebaseApp;
+  }
 
   @override
   _NavbarState createState() => _NavbarState();
@@ -16,7 +22,7 @@ class _NavbarState extends State<Navbar> {
 
   final pages = [
     HomePage(),
-    AntrianPage(),
+    antreanPage(),
     ProfilPage(),
   ];
 

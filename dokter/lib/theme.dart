@@ -12,6 +12,10 @@ Color whiteColor = Color(0xffffffff);
 Color WhiterColor = Color(0xffFAFAFA);
 Color redColor = Color(0xffEB5151);
 
+TextStyle greenTextStyle = GoogleFonts.inter(
+  fontWeight: FontWeight.w500,
+  color: greenColor,
+);
 TextStyle whiteSemiBoldTextStyle = GoogleFonts.inter(
   fontWeight: FontWeight.w600,
   color: whiteColor,

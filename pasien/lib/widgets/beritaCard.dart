@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:antri/models/beritaM.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/models/beritaM.dart';
+import 'package:antre/theme.dart';
 
 class BeritaCard extends StatelessWidget {
   final Berita berita;
@@ -41,7 +41,7 @@ class BeritaCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    berita.tanggal,
+                    berita.date,
                     style: blackRegulerTextStyle.copyWith(
                       fontSize: 7,
                     ),
@@ -50,7 +50,7 @@ class BeritaCard extends StatelessWidget {
                     height: 1,
                   ),
                   Text(
-                    berita.judul,
+                    berita.title,
                     style: blackSemiBoldTextStyle.copyWith(
                       fontSize: 10,
                     ),

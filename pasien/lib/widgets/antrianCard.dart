@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:antri/theme.dart';
+import 'package:antre/theme.dart';
 
-class AntrianCard extends StatelessWidget {
+class antreanCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
