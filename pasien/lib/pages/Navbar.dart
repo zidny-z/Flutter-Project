@@ -1,9 +1,9 @@
-import 'package:antre/pages/antrianPage.dart';
 import 'package:antre/pages/homepage.dart';
 import 'package:antre/pages/profilPage.dart';
 import 'package:antre/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'myAntrian.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({Key? key}) : super(key: key);
@@ -22,7 +22,8 @@ class _NavbarState extends State<Navbar> {
 
   final pages = [
     HomePage(),
-    antreanPage(),
+    MyAntrian(),
+    // antreanPage(),
     ProfilPage(),
   ];
 

@@ -1,4 +1,5 @@
 import 'package:antre/pages/acaralagi.dart';
+import 'package:antre/pages/antriCepatPage.dart';
 import 'package:antre/pages/beritalagi.dart';
 import 'package:antre/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -139,9 +140,8 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => RumahSakitPage()
-                                      // builder: (context) => antreCepat()
-                                      ));
+                                      // builder: (context) => RumahSakitPage()
+                                      builder: (context) => AntreCepat()));
                             },
                             child: Container(
                               height: 100,
