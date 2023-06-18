@@ -3,7 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:antre/theme.dart';
 
-class ProfilPage extends StatelessWidget {
+class ProfilPage extends StatefulWidget {
+  @override
+  State<ProfilPage> createState() => _ProfilPageState();
+}
+
+class _ProfilPageState extends State<ProfilPage> {
+  final _user = FirebaseAuth.instance.currentUser?.email;
+  final _userName = FirebaseAuth.instance.currentUser?.displayName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,32 +53,32 @@ class ProfilPage extends StatelessWidget {
                     height: 14,
                   ),
                   Text(
-                    'Nur Fitri',
+                    (_userName ?? _user!),
                     style: blackSemiBoldTextStyle.copyWith(fontSize: 30),
                   ),
                   Text(
-                    '1925514189',
+                    _user ?? '',
                     style: blackRegulerTextStyle.copyWith(fontSize: 16),
                   ),
                   SizedBox(
                     height: 46,
                   ),
-                  SizedBox(
-                    width: 300,
-                    height: 45,
-                    child: ElevatedButton(
-                      child: Text(
-                        'Edit Profil',
-                        style: whiteSemiBoldTextStyle.copyWith(fontSize: 16),
-                      ),
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: greenColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100)),
-                      ),
-                    ),
-                  ),
+                  // SizedBox(
+                  //   width: 300,
+                  //   height: 45,
+                  //   child: ElevatedButton(
+                  //     child: Text(
+                  //       'Edit Profil',
+                  //       style: whiteSemiBoldTextStyle.copyWith(fontSize: 16),
+                  //     ),
+                  //     onPressed: () {},
+                  //     style: ElevatedButton.styleFrom(
+                  //       backgroundColor: greenColor,
+                  //       shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(100)),
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 25,
                   ),

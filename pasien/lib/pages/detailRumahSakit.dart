@@ -51,7 +51,8 @@ class DetailRumahSakitPage extends StatelessWidget {
                       SizedBox(
                         height: 16,
                       ),
-                      Image.network(imageRumahSakit!),
+                      Image.network(imageRumahSakit ??
+                          'https://asset.kompas.com/crops/mOKFrYHlSTM6SEt4aD9PIXZnJE0=/0x5:593x400/750x500/data/photo/2020/03/16/5e6ee88f78835.jpg'),
                       SizedBox(height: 16),
                       Text(namaRumahSakit ?? '',
                           style: blackSemiBoldTextStyle.copyWith(fontSize: 24)),

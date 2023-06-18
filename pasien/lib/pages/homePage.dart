@@ -1,12 +1,12 @@
-import 'package:antre/pages/acaralagi.dart';
+import 'package:antre/pages/acara.dart';
 import 'package:antre/pages/antriCepatPage.dart';
-import 'package:antre/pages/beritalagi.dart';
+import 'package:antre/pages/berita.dart';
 import 'package:antre/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'nearlagi.dart';
+import 'nearby.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
