@@ -92,6 +92,7 @@ class _RumahSakitPageState extends State<RumahSakitPage> {
                   alamat ?? '',
                   style: darkenGreyTextStyle,
                 ),
+                shape: Border(bottom: BorderSide(color: greyEBcolor)),
                 trailing: IconButton(
                   icon: Icon(Icons.location_on),
                   onPressed: () {

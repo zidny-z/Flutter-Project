@@ -1,322 +1,244 @@
-// import 'package:antre/pages/hasilantriPage.dart';
-// import 'package:flutter/material.dart';
-// import 'package:antre/theme.dart';
-
-// class antreCepat extends StatelessWidget {
-//   const antreCepat({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       resizeToAvoidBottomInset: false,
-//       appBar: AppBar(
-//         title: const Text('Program antre Cepat'),
-//         backgroundColor: Colors.green,
-//         leading: BackButton(
-//           color: Colors.white,
-//         ),
-//       ),
-//       body: SafeArea(
-//           child: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           crossAxisAlignment: CrossAxisAlignment.center,
-//           children: [
-//             Text(
-//               'antre Cepat',
-//               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w800),
-//             ),
-//             SizedBox(
-//               height: 30,
-//             ),
-//             Container(
-//               child: const SizedBox(
-//                 width: 310,
-//                 height: 47,
-//                 child: TextField(
-//                   obscureText: false,
-//                   decoration: InputDecoration(
-//                     filled: true,
-//                     fillColor: Color(0xffF6F6F6),
-//                     border: OutlineInputBorder(),
-//                     labelText: 'Nama',
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             SizedBox(
-//               height: 20,
-//             ),
-//             Container(
-//               child: const SizedBox(
-//                 width: 310,
-//                 height: 47,
-//                 child: TextField(
-//                   obscureText: false,
-//                   decoration: InputDecoration(
-//                     filled: true,
-//                     fillColor: Color(0xffF6F6F6),
-//                     border: OutlineInputBorder(),
-//                     labelText: 'Nomor BPJS',
-//                   ),
-//                   keyboardType: TextInputType.number,
-//                 ),
-//               ),
-//             ),
-//             SizedBox(
-//               height: 20,
-//             ),
-//             Container(
-//               child: const SizedBox(
-//                 width: 310,
-//                 height: 47,
-//                 child: TextField(
-//                   obscureText: false,
-//                   decoration: InputDecoration(
-//                     filled: true,
-//                     fillColor: Color(0xffF6F6F6),
-//                     border: OutlineInputBorder(),
-//                     labelText: 'Poli',
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             SizedBox(
-//               height: 20,
-//             ),
-//             Container(
-//               width: 310,
-//               height: 48,
-//               child: ElevatedButton(
-//                 onPressed: () {
-//                   Navigator.push(
-//                     context,
-//                     MaterialPageRoute(
-//                       builder: (context) => HasilantrePage(),
-//                     ),
-//                   );
-//                 },
-//                 child: Text(
-//                   'Cari',
-//                   style: whiteMediumTextStyle,
-//                 ),
-//                 style: ButtonStyle(
-//                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-//                       RoundedRectangleBorder(
-//                         borderRadius: BorderRadius.circular(100.0),
-//                       ),
-//                     ),
-//                     backgroundColor:
-//                         MaterialStatePropertyAll<Color>(greenColor),
-//                     foregroundColor:
-//                         MaterialStatePropertyAll<Color>(whiteColor)),
-//               ),
-//             ),
-//           ],
-//         ),
-//       )),
-//     );
-//   }
-// }
-
-// class DropdownButtonExample extends StatefulWidget {
-//   const DropdownButtonExample({super.key});
-
-//   @override
-//   State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
-// }
-
-// const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
-
-// class _DropdownButtonExampleState extends State<DropdownButtonExample> {
-//   String dropdownValue = list.first;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return DropdownButton<String>(
-//       value: dropdownValue,
-//       icon: const Icon(Icons.arrow_downward),
-//       elevation: 16,
-//       style: const TextStyle(color: Colors.black),
-//       underline: Container(
-//         height: 2,
-//         color: Colors.green,
-//       ),
-//       onChanged: (String? value) {
-//         // This is called when the user selects an item.
-//         setState(() {
-//           dropdownValue = value!;
-//         });
-//       },
-//       items: list.map<DropdownMenuItem<String>>((String value) {
-//         return DropdownMenuItem<String>(
-//           value: value,
-//           child: Text(value),
-//         );
-//       }).toList(),
-//     );
-//   }
-// }
-
+import 'package:antre/pages/nearlagi.dart';
+import 'package:antre/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class RumahSakit {
-  final String id;
-  final String nama;
-  final List<Poli> polis;
-
-  RumahSakit({
-    required this.id,
-    required this.nama,
-    required this.polis,
-  });
-}
-
-class Poli {
-  final String id;
-  final String nama;
-  final String dokter;
-
-  Poli({
-    required this.id,
-    required this.nama,
-    required this.dokter,
-  });
-}
-
 class AntreCepat extends StatefulWidget {
+  const AntreCepat({super.key});
+
   @override
   _AntreCepatState createState() => _AntreCepatState();
 }
 
 class _AntreCepatState extends State<AntreCepat> {
-  RumahSakit? _selectedRumahSakit;
-  Poli? _selectedPoli;
-
-  List<RumahSakit> _rumahSakitList = [];
+  String? selectedPoli;
+  List<String> poliList = [];
 
   @override
   void initState() {
     super.initState();
-    _fetchData();
+    fetchPoliList();
   }
 
-  Future<void> _fetchData() async {
-    final QuerySnapshot rumahSakitSnapshot =
-        await FirebaseFirestore.instance.collection('RS').get();
+  Future<void> fetchPoliList() async {
+    try {
+      QuerySnapshot querySnapshot =
+          await FirebaseFirestore.instance.collection('RS').get();
 
-    final List<RumahSakit> rumahSakitList =
-        rumahSakitSnapshot.docs.map((document) {
-      final List<Poli> polis = (document['poli'] as List)
-          .map((poli) => Poli(
-                id: poli['id'],
-                nama: poli['name'],
-                dokter: poli['dokter'],
-              ))
-          .toList();
+      Set<String> uniquePoliSet = Set<String>();
 
-      return RumahSakit(
-        id: document.id,
-        nama: document['name'],
-        polis: polis,
-      );
-    }).toList();
+      for (var doc in querySnapshot.docs) {
+        QuerySnapshot poliSnapshot =
+            await doc.reference.collection('poli').get();
 
-    setState(() {
-      _rumahSakitList = rumahSakitList;
-    });
+        for (var poliDoc in poliSnapshot.docs) {
+          uniquePoliSet.add(poliDoc.get('name'));
+        }
+      }
+
+      setState(() {
+        poliList = uniquePoliSet.toList();
+      });
+    } catch (e) {
+      print('Error fetching poli list: $e');
+    }
+  }
+
+  Future<List<String>> fetchHospitalsByPoli(String? poliName) async {
+    try {
+      QuerySnapshot querySnapshot =
+          await FirebaseFirestore.instance.collection('RS').get();
+
+      List<String> hospitals = [];
+
+      for (var doc in querySnapshot.docs) {
+        QuerySnapshot poliSnapshot = await doc.reference
+            .collection('poli')
+            .where('name', isEqualTo: poliName)
+            .get();
+
+        if (poliSnapshot.docs.isNotEmpty) {
+          hospitals.add(doc.get('name'));
+        }
+      }
+
+      return hospitals;
+    } catch (e) {
+      print('Error fetching hospitals by poli: $e');
+      return [];
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Rumah Sakit'),
+        title: Text('Pilih Poli'),
+        backgroundColor: greenColor,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            DropdownButton<RumahSakit>(
-              value: _selectedRumahSakit,
-              hint: Text('Pilih Rumah Sakit'),
-              onChanged: (RumahSakit? rumahSakit) {
-                setState(() {
-                  _selectedRumahSakit = rumahSakit;
-                  _selectedPoli = null;
-                });
-              },
-              items: _rumahSakitList.map((rumahSakit) {
-                return DropdownMenuItem<RumahSakit>(
-                  value: rumahSakit,
-                  child: Text(rumahSakit.nama),
-                );
-              }).toList(),
-            ),
-            SizedBox(height: 16),
-            if (_selectedRumahSakit != null)
-              DropdownButton<Poli>(
-                value: _selectedPoli,
-                hint: Text('Pilih Poli'),
-                onChanged: (Poli? poli) {
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              DropdownButton<String>(
+                isExpanded: true,
+                value: selectedPoli,
+                onChanged: (newValue) {
                   setState(() {
-                    _selectedPoli = poli;
+                    selectedPoli = newValue;
                   });
                 },
-                items: _selectedRumahSakit!.polis.map((poli) {
-                  return DropdownMenuItem<Poli>(
+                items: poliList.map<DropdownMenuItem<String>>((String poli) {
+                  return DropdownMenuItem<String>(
                     value: poli,
-                    child: Text(poli.nama),
-                  );
-                }).toList(),
-              ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                if (_selectedRumahSakit != null && _selectedPoli != null) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailRumahSakitPage(
-                        rumahSakit: _selectedRumahSakit!,
-                        poli: _selectedPoli!,
-                      ),
+                    child: Text(
+                      poli,
+                      style: blackRegulerTextStyle.copyWith(fontSize: 20),
                     ),
                   );
-                }
-              },
-              child: Text('Lihat Detail'),
-            ),
-          ],
+                }).toList(),
+                hint: Text('Pilih Poli'),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: greenColor,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                ),
+                onPressed: () {
+                  if (selectedPoli != null) {
+                    fetchHospitalsByPoli(selectedPoli).then((hospitals) {
+                      if (hospitals.isNotEmpty) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SearchResultPage(
+                              selectedPoli: selectedPoli!,
+                              hospitals: hospitals,
+                            ),
+                          ),
+                        );
+                      } else {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Peringatan'),
+                              content: Text(
+                                  'Tidak ada rumah sakit yang memiliki poli ini.'),
+                              actions: [
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('Tutup'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
+                    });
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Peringatan'),
+                          content: Text('Pilih poli terlebih dahulu.'),
+                          actions: [
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Tutup'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                },
+                child: Text('Cari Rumah Sakit'),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class DetailRumahSakitPage extends StatelessWidget {
-  final RumahSakit rumahSakit;
-  final Poli poli;
+class SearchResultPage extends StatelessWidget {
+  final String selectedPoli;
+  final List<String> hospitals;
 
-  DetailRumahSakitPage({
-    required this.rumahSakit,
-    required this.poli,
+  SearchResultPage({
+    required this.selectedPoli,
+    required this.hospitals,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detail Rumah Sakit'),
+        title: Text('Hasil Pencarian'),
+        backgroundColor: greenColor,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Rumah Sakit: ${rumahSakit.nama}'),
-          Text('Poli: ${poli.nama}'),
-          Text('Dokter: ${poli.dokter}'),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView(
+          children: [
+            Center(
+              child: Text(
+                'Rumah Sakit dengan Poli $selectedPoli',
+                style: blackSemiBoldTextStyle.copyWith(fontSize: 20),
+              ),
+            ),
+            SizedBox(height: 16),
+            hospitals.isNotEmpty
+                ? Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: hospitals
+                          .map(
+                            (hospital) => Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8),
+                              child: Text(
+                                hospital,
+                                style:
+                                    darkenGreyTextStyle.copyWith(fontSize: 16),
+                              ),
+                            ),
+                          )
+                          .toList(),
+                    ),
+                  )
+                : Center(
+                    child:
+                        Text('Tidak ada rumah sakit yang memiliki poli ini.')),
+            Center(
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: greenColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RumahSakitPage()
+                            // builder: (context) => RsDekat()
+                            ));
+                  },
+                  child: Text('Cek Rumah Sakit Terdekat')),
+            )
+          ],
+        ),
       ),
     );
   }
