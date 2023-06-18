@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1023771943067",
+    "project_id": "antre-2470a",
+    "storage_bucket": "antre-2470a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023771943067:android:76e06996260a08ce4fe63e",
+        "android_client_info": {
+          "package_name": "com.example.antre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1023771943067-cf84qb5qeskn0142tkaqcn5ot59ima9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0tNQZxHUN-Bfam_x9IjHd2Tz_p8YJjuQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1023771943067-cf84qb5qeskn0142tkaqcn5ot59ima9t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1023771943067-5hgfs2f79q09cl8cure71uplqfq1dpeg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.antre.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
